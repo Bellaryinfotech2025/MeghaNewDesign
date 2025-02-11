@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Photoroom Customer Stories</title>
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+        }
+        body {
+            background-color: white;
+            display: flex;
+            justify-content: center;
+            padding: 20px;
+        }
+        .customer-stories {
+            display: flex;
+            gap: 20px;
+            width: 100%;
+            max-width: 1200px;
+        }
+        .story-card {
+            flex: 1;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+        .story-image {
+            height: 300px;
+            background-size: cover;
+            background-position: center;
+            position: relative;
+        }
+        .story-card:nth-child(1) .story-image {
+            background: linear-gradient(135deg, #8A4FFF 0%, #5E2AB3 100%);
+        }
+        .story-card:nth-child(2) .story-image {
+            background: linear-gradient(135deg, #FF6B6B 0%, #FFD93D 100%);
+        }
+        .story-card:nth-child(3) .story-image {
+            background: linear-gradient(135deg, #2196F3 0%, #1976D2 100%);
+        }
+        .story-badge {
+            position: absolute;
+            top: 15px;
+            left: 15px;
+            background-color: rgba(255,255,255,0.2);
+            color: white;
+            padding: 5px 10px;
+            border-radius: 20px;
+            font-size: 12px;
+        }
+        .story-content {
+            background: white;
+            padding: 20px;
+            height: calc(100% - 300px);
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+        .story-card:nth-child(1) .story-content {
+            background: linear-gradient(to right, #F0E5FF, #FFFFFF);
+        }
+        .story-card:nth-child(2) .story-content {
+            background: linear-gradient(to right, #FFF2E6, #FFFFFF);
+        }
+        .story-card:nth-child(3) .story-content {
+            background: linear-gradient(to right, #E6F2FF, #FFFFFF);
+        }
+        .story-text {
+            font-size: 15px;
+            color: #333;
+            margin-bottom: 15px;
+        }
+        .story-author {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        .author-image {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            object-fit: cover;
+        }
+        .author-details {
+            display: flex;
+            flex-direction: column;
+        }
+        .author-name {
+            font-weight: bold;
+            font-size: 14px;
+        }
+        .author-title {
+            color: #666;
+            font-size: 12px;
+        }
+        .read-story-btn {
+            align-self: flex-start;
+            background-color: black;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 25px;
+            margin-top: 15px;
+            cursor: pointer;
+        }
+        @media (max-width: 768px) {
+            .customer-stories {
+                flex-direction: column;
+            }
+            .story-image {
+                height: 200px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="customer-stories">
+        <div class="story-card">
+            <div class="story-image">
+                <div class="story-badge">Customer story</div>
+            </div>
+            <div class="story-content">
+                <div class="story-text">
+                    Since adopting Photoroom API, Smartly has seen an 18.42% increase in return on ad spend and a 72% increase in click-through rate, while saving 20 hours of work and improving image quality.
+                </div>
+                <div class="story-author">
+                    <img src="https://via.placeholder.com/40" alt="Hamza Abdou" class="author-image">
+                    <div class="author-details">
+                        <div class="author-name">Hamza Abdou</div>
+                        <div class="author-title">Customer Success Manager at Smartly</div>
+                    </div>
+                </div>
+                <button class="read-story-btn">Read story</button>
+            </div>
+        </div>
+
+        <div class="story-card">
+            <div class="story-image">
+                <div class="story-badge">Customer story</div>
+            </div>
+            <div class="story-content">
+                <div class="story-text">
+                    "I track my email marketing platforms. When I send out my SMS/email marketing with images from Photoroom, I get up to 200% more sales."
+                </div>
+                <div class="story-author">
+                    <img src="https://via.placeholder.com/40" alt="Sarah Hoorfar" class="author-image">
+                    <div class="author-details">
+                        <div class="author-name">Sarah Hoorfar</div>
+                        <div class="author-title">Founder at Cowgirl Clutch</div>
+                    </div>
+                </div>
+                <button class="read-story-btn">Read story</button>
+            </div>
+        </div>
+
+        <div class="story-card">
+            <div class="story-image">
+                <div class="story-badge">Customer story</div>
+            </div>
+            <div class="story-content">
+                <div class="story-text">
+                    "Photoroom's API has been key in our journey towards operational excellence in image editing. It has not only enhanced our processes but has also improved the quality of our product visuals, adding to our growth and success."
+                </div>
+                <div class="story-author">
+                    <img src="https://via.placeholder.com/40" alt="Jeff Strauss" class="author-image">
+                    <div class="author-details">
+                        <div class="author-name">Jeff Strauss</div>
+                        <div class="author-title">Director of Imaging at Wolt</div>
+                    </div>
+                </div>
+                <button class="read-story-btn">Read story</button>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

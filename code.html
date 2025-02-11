@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kittl - Design. Deliver. Collaborate.</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+        }
+        body {
+            background-color: white;
+            color: #333;
+        }
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 40px;
+            position: relative;
+        }
+        .nav-left {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+        }
+        .logo {
+            font-size: 24px;
+            font-weight: bold;
+        }
+        .nav-menu {
+            display: flex;
+            gap: 20px;
+        }
+        .nav-menu a {
+            text-decoration: none;
+            color: #333;
+            position: relative;
+        }
+        .nav-right {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+        .nav-right a {
+            text-decoration: none;
+            color: #333;
+        }
+        .signup-btn {
+            background-color: black;
+            color: white;
+            padding: 10px 20px;
+            border-radius: 6px;
+        }
+        .hero {
+            text-align: center;
+            padding: 100px 40px;
+        }
+        .hero-title {
+            font-size: 96px;
+            font-weight: bold;
+            line-height: 1.1;
+            margin-bottom: 20px;
+        }
+        .hero-subtitle {
+            font-size: 18px;
+            color: #666;
+            max-width: 600px;
+            margin: 0 auto 30px;
+        }
+        .cta-btn {
+            display: inline-block;
+            background-color: black;
+            color: white;
+            padding: 15px 30px;
+            text-decoration: none;
+            border-radius: 8px;
+            font-weight: bold;
+        }
+        .dropdown-menu {
+            position: absolute;
+            top: 100%;
+            left: 0;
+            width: 100%;
+            background-color: white;
+            display: none;
+            padding: 40px;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+        }
+        .dropdown-content {
+            display: flex;
+            justify-content: space-between;
+        }
+        .dropdown-column {
+            flex: 1;
+        }
+        .dropdown-column h4 {
+            margin-bottom: 15px;
+            color: #666;
+        }
+        .dropdown-column a {
+            display: block;
+            padding: 10px 0;
+            text-decoration: none;
+            color: #333;
+        }
+        .dropdown-column img {
+            max-width: 100%;
+            border-radius: 10px;
+        }
+        .mobile-menu {
+            display: none;
+        }
+        .mobile-menu-icon {
+            display: none;
+            flex-direction: column;
+            cursor: pointer;
+        }
+        .mobile-menu-icon span {
+            height: 3px;
+            width: 25px;
+            background-color: black;
+            margin: 3px 0;
+        }
+        .sidebar {
+            position: fixed;
+            top: 0;
+            left: -300px;
+            width: 300px;
+            height: 100%;
+            background-color: white;
+            transition: 0.3s;
+            z-index: 1000;
+            padding: 20px;
+        }
+        .sidebar.open {
+            left: 0;
+        }
+        @media (max-width: 1024px) {
+            .nav-menu, .nav-right {
+                display: none;
+            }
+            .mobile-menu-icon {
+                display: flex;
+            }
+            .hero-title {
+                font-size: 48px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar">
+        <div class="nav-left">
+            <div class="logo">Kittl</div>
+            <div class="nav-menu">
+                <a href="#" data-dropdown="product">Product</a>
+                <a href="#" data-dropdown="templates">Templates</a>
+                <a href="#" data-dropdown="resources">Resources</a>
+                <a href="#" data-dropdown="company">Company</a>
+            </div>
+        </div>
+        <div class="nav-right">
+            <a href="#">Plans</a>
+            <a href="#">Sign In</a>
+            <a href="#" class="signup-btn">Sign Up</a>
+        </div>
+        <div class="mobile-menu-icon">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+    </nav>
+
+    <div class="dropdown-menu">
+        <div class="dropdown-content">
+            <div class="dropdown-column" id="company-dropdown">
+                <div class="dropdown-section">
+                    <h4>Company</h4>
+                    <a href="#">About Us</a>
+                    <a href="#">Contact</a>
+                    <a href="#">Careers</a>
+                    <a href="#">News & Media</a>
+                    <a href="#">Feature Request</a>
+                </div>
+                <div class="dropdown-section">
+                    <h4>Partnerships</h4>
+                    <a href="#">Influencers</a>
+                    <a href="#">Affiliates</a>
+                    <a href="#">Creators</a>
+                    <a href="#">Campus Leader</a>
+                </div>
+            </div>
+            <div class="dropdown-column">
+                <h4>Join Our Team</h4>
+                <img src="/api/placeholder/400/300" alt="Team Photo">
+                <p>See our current openings to find the best fit for you and your career goals</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="sidebar">
+        <div class="sidebar-menu">
+            <a href="#">Product</a>
+            <a href="#">Templates</a>
+            <a href="#">Resources</a>
+            <a href="#">Company</a>
+            <a href="#">Plans</a>
+            <a href="#">Sign In</a>
+            <a href="#" class="signup-btn">Sign Up</a>
+        </div>
+    </div>
+
+    <div class="hero">
+        <h1 class="hero-title">DESIGN. DELIVER. COLLABORATE.</h1>
+        <p class="hero-subtitle">Kittl makes it simple to create professional designs — just the right tools, no unnecessary extras.</p>
+        <a href="#" class="cta-btn">Try Kittl for free →</a>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const dropdownTriggers = document.querySelectorAll('[data-dropdown]');
+            const dropdownMenu = document.querySelector('.dropdown-menu');
+            const mobileMenuIcon = document.querySelector('.mobile-menu-icon');
+            const sidebar = document.querySelector('.sidebar');
+
+            dropdownTriggers.forEach(trigger => {
+                trigger.addEventListener('mouseenter', () => {
+                    dropdownMenu.style.display = 'block';
+                });
+            });
+
+            dropdownMenu.addEventListener('mouseleave', () => {
+                dropdownMenu.style.display = 'none';
+            });
+
+            mobileMenuIcon.addEventListener('click', () => {
+                sidebar.classList.toggle('open');
+            });
+        });
+    </script>
+</body>
+</html>
