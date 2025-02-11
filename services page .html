@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+        }
+
+        .expertise-section {
+            padding: 80px 20px;
+            background: #fff;
+            opacity: 0;
+            transform: translateY(50px);
+            transition: all 1s ease-out;
+        }
+
+        .expertise-section.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 40px;
+            color: #333;
+            margin-bottom: 30px;
+        }
+
+        .section-description {
+            text-align: center;
+            max-width: 1200px;
+            margin: 0 auto 60px;
+            line-height: 1.6;
+            color: #666;
+            font-size: 18px;
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .service-card {
+            position: relative;
+            height: 300px;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            cursor: pointer;
+        }
+
+        .service-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.2);
+        }
+
+        .service-image {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.3s ease;
+        }
+
+        .service-card:hover .service-image {
+            transform: scale(1.05);
+        }
+
+        .service-overlay {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            padding: 20px;
+            background: linear-gradient(to top, rgba(0,0,0,0.8), transparent);
+            color: white;
+            transition: all 0.3s ease;
+        }
+
+        .service-card:hover .service-overlay {
+            background: rgba(0,0,0,0.7);
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .service-title {
+            font-size: 24px;
+            font-weight: 600;
+            margin-bottom: 10px;
+        }
+
+        .service-description {
+            font-size: 16px;
+            line-height: 1.5;
+            opacity: 0;
+            transform: translateY(20px);
+            transition: all 0.3s ease;
+            display: none;
+        }
+
+        .service-card:hover .service-description {
+            opacity: 1;
+            transform: translateY(0);
+            display: block;
+        }
+
+        .service-link {
+            display: inline-flex;
+            align-items: center;
+            color: #fff;
+            text-decoration: none;
+            margin-top: 15px;
+            font-weight: 500;
+            opacity: 0;
+            transform: translateY(20px);
+            transition: all 0.3s ease 0.1s;
+        }
+
+        .service-card:hover .service-link {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .arrow-icon {
+            margin-left: 8px;
+            transition: transform 0.3s ease;
+        }
+
+        .service-link:hover .arrow-icon {
+            transform: translateX(5px);
+        }
+
+        @media (max-width: 768px) {
+            .section-title {
+                font-size: 32px;
+            }
+
+            .section-description {
+                font-size: 16px;
+                padding: 0 20px;
+            }
+
+            .services-grid {
+                grid-template-columns: 1fr;
+                padding: 0 20px;
+            }
+
+            .service-card {
+                height: 250px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <section class="expertise-section">
+        <h1 class="section-title">Our Expertise and Specialities</h1>
+        <p class="section-description">
+            The Al Naboodah Construction Group (ANCG) started operations in the UAE in the 1960s and today employs in excess of 14,000 people. ANCG is managed with a wealth of international expertise and specialises in the following areas of construction: civil engineering, building, MEP, ready-mix concrete and asphalt, and the supply of specialist plant and equipment.
+        </p>
+        <div class="services-grid">
+            <div class="service-card">
+                <img src="/api/placeholder/400/300" alt="Specialist Services" class="service-image">
+                <div class="service-overlay">
+                    <h3 class="service-title">Specialist Services</h3>
+                    <p class="service-description">
+                        Comprehensive specialist construction services including civil engineering, infrastructure development, and advanced construction solutions tailored to meet complex project requirements.
+                    </p>
+                    <a href="#" class="service-link">
+                        Learn More
+                        <span class="arrow-icon">→</span>
+                    </a>
+                </div>
+            </div>
+
+            <div class="service-card">
+                <img src="/api/placeholder/400/300" alt="Ready Mix" class="service-image">
+                <div class="service-overlay">
+                    <h3 class="service-title">Ready Mix</h3>
+                    <p class="service-description">
+                        State-of-the-art ready-mix concrete production facilities delivering high-quality concrete solutions for construction projects of all scales.
+                    </p>
+                    <a href="#" class="service-link">
+                        Learn More
+                        <span class="arrow-icon">→</span>
+                    </a>
+                </div>
+            </div>
+
+            <div class="service-card">
+                <img src="/api/placeholder/400/300" alt="BIM Modelling" class="service-image">
+                <div class="service-overlay">
+                    <h3 class="service-title">BIM Modelling</h3>
+                    <p class="service-description">
+                        Advanced Building Information Modeling services providing comprehensive 3D modeling, coordination, and digital construction planning solutions.
+                    </p>
+                    <a href="#" class="service-link">
+                        Learn More
+                        <span class="arrow-icon">→</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <script>
+        // Scroll animation
+        const section = document.querySelector('.expertise-section');
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, {
+            threshold: 0.2
+        });
+
+        observer.observe(section);
+    </script>
+</body>
+</html>
