@@ -1,0 +1,764 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Megha Super Structures - Projects</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link href="https://unpkg.com/tailwindcss@2.0.2/dist/tailwind.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>-l
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: system-ui, -apple-system, sans-serif;
+        }
+        html,body{
+            overflow-x: hidden;
+            max-width: 100%;
+        }
+/*project design new*/
+.body-p {
+            background-color: #f8f9fa;
+            color: #333;
+            line-height: 1.6;
+        }
+
+        .container-p {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+
+        .header-p {
+            margin-bottom: 60px;
+            position: relative;
+        }
+
+        .header-p::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            right: -50%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, transparent 50%, #e9ecef 50%);
+            z-index: -1;
+        }
+
+        .main-title-p {
+            color: #003876;
+            font-size: 2.5rem;
+            font-weight: bold;
+            margin-bottom: 30px;
+            max-width: 800px;
+            line-height: 1.2;
+        }
+
+        .intro-text-p {
+            font-size: 1.1rem;
+            color: #555;
+            max-width: 900px;
+            margin-bottom: 50px;
+        }
+
+        .project-card-p {
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 30px;
+            margin-top: 40px;
+        }
+
+        .project-info-p {
+            padding: 40px;
+        }
+
+        .project-title-p{
+            color: #003876;
+            font-size: 2rem;
+            margin-bottom: 20px;
+        }
+
+        .project-meta {
+            margin-bottom: 30px;
+        }
+
+        .meta-item {
+            margin-bottom: 10px;
+            color: #003876;
+        }
+
+        .meta-label {
+            font-weight: bold;
+        }
+
+        .project-description-p {
+            color: #555;
+            margin-bottom: 20px;
+        }
+
+        .project-image-p {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            min-height: 400px;
+        }
+
+        @media (max-width: 968px) {
+            .project-card-p {
+                grid-template-columns: 1fr;
+            }
+
+            .main-title-p{
+                font-size: 2rem;
+            }
+
+            .project-title-p {
+                font-size: 1.75rem;
+            }
+
+            .project-image-p {
+                min-height: 300px;
+            }
+        }
+
+        @media (max-width: 576px) {
+            .container-p {
+                padding: 20px;
+            }
+
+            .header-p {
+                margin-bottom: 40px;
+            }
+
+            .project-info-p {
+                padding: 20px;
+            }
+        }
+
+        /*project image */
+        .hero-project {
+            height: 60vh;
+            background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('/api/placeholder/1920/1080');
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: white;
+            padding: 2rem;
+        }
+
+        .hero-content-project {
+            max-width: 800px;
+        }
+
+        .hero-title-project {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            animation: fadeInUp 1s ease;
+        }
+
+        .hero-text-project {
+            font-size: 1.2rem;
+            line-height: 1.6;
+            margin-bottom: 2rem;
+            animation: fadeInUp 1.2s ease;
+        }
+
+        .stats-project {
+            display: flex;
+            justify-content: center;
+            gap: 3rem;
+            margin-top: 2rem;
+            animation: fadeInUp 1.4s ease;
+        }
+
+        .stat-item-project {
+            text-align: center;
+        }
+
+        .stat-number-project {
+            font-size: 2.5rem;
+            font-weight: bold;
+            margin-bottom: 0.5rem;
+        }
+
+        .stat-label-project {
+            font-size: 1rem;
+            opacity: 0.9;
+        }
+
+        .projects-section-project {
+            padding: 4rem 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .filter-buttons-project {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            margin-bottom: 3rem;
+        }
+
+        .filter-btn-project {
+            padding: 1rem 2rem;
+            border: none;
+            border-radius: 30px;
+            background: #E97451;
+            color: white;
+            cursor: pointer;
+            transition: all 0.3s;
+            font-size: 1rem;
+        }
+
+        .filter-btn-project:hover,
+        .filter-btn-project.active {
+            background: #d66a48;
+            transform: translateY(-2px);
+        }
+
+        .projects-grid-project {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-bottom: 3rem;
+        }
+
+        .project-card-project {
+            background: white;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            transition: transform 0.3s;
+            opacity: 0;
+            transform: translateY(20px);
+            animation: fadeInUp 0.5s ease forwards;
+        }
+
+        .project-card-project:hover {
+            transform: translateY(-5px);
+        }
+
+        .project-image-project {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+        }
+
+        .project-info-project {
+            padding: 1.5rem;
+        }
+
+        .project-title-project {
+            font-size: 1.25rem;
+            margin-bottom: 0.5rem;
+            color: #333;
+        }
+
+        .project-location-project {
+            color: #666;
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .read-more-project {
+            display: inline-block;
+            padding: 0.75rem 1.5rem;
+            background: #E97451;
+            color: white;
+            text-decoration: none;
+            border-radius: 6px;
+            transition: background 0.3s;
+        }
+
+        .read-more-project:hover {
+            background: #d66a48;
+        }
+
+        .pagination-project {
+            display: flex;
+            justify-content: center;
+            gap: 0.5rem;
+            margin-top: 2rem;
+        }
+
+        .page-btn-project {
+            width: 40px;
+            height: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border: none;
+            border-radius: 50%;
+            background: #f0f0f0;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .page-btn-project.active {
+            background: #E97451;
+            color: white;
+        }
+
+        .page-btn-project:hover {
+            background: #d66a48;
+            color: white;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @media (max-width: 768px) {
+            .hero-title-project {
+                font-size: 2rem;
+            }
+
+            .stats-project {
+                flex-direction: column;
+                gap: 1.5rem;
+            }
+
+            .filter-buttons-project {
+                flex-direction: column;
+                align-items: stretch;
+            }
+
+            .projects-grid-project {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /*experinec section css*/
+        .experience-section-project {
+            background: #f8f9fa;
+            padding: 6rem 2rem;
+        }
+
+        .experience-grid-project {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem;
+        }
+
+        .experience-card-project {
+            background: white;
+            padding: 2rem;
+            border-radius: 12px;
+            text-align: center;
+            transition: transform 0.3s;
+        }
+
+        .experience-card-project:hover {
+            transform: translateY(-10px);
+        }
+
+        .experience-icon-project {
+            font-size: 3rem;
+            color: #E97451;
+            margin-bottom: 1rem;
+        }
+
+        .experience-number-project {
+            font-size: 2.5rem;
+            font-weight: bold;
+            margin-bottom: 0.5rem;
+            color: #333;
+        }
+
+        .experience-title-project {
+            color: #666;
+            font-size: 1.1rem;
+        }
+        /*footer**************************************/
+        .footer-link {
+            color: #6B7280;
+            transition: color 0.2s ease;
+            display: block;
+            padding: 4px 0;
+            text-decoration: none;
+        }
+
+        .footer-link:hover {
+            color: #111827;
+        }
+
+        .social-icon {
+            color: #4B5563;
+            transition: all 0.2s ease;
+            margin-right: 1rem;
+        }
+
+        .social-icon:hover {
+            color: #111827;
+            transform: translateY(-2px);
+        }
+
+        .footer-heading {
+            color: #111827;
+            font-weight: 600;
+            margin-bottom: 1rem;
+        }
+
+        .logo {
+            font-family: 'Playfair Display', serif;
+            font-weight: bold;
+            font-style: italic;
+        }
+
+        @media (max-width: 768px) {
+            .footer-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            
+            .footer-logo-section {
+                grid-column: span 2;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .footer-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .footer-logo-section {
+                grid-column: span 1;
+            }
+        }
+    </style>
+</head>
+<body>
+    <section class="hero-project">
+        <div class="hero-content-project">
+            <h1 class="hero-title-project">Building Tomorrow's Infrastructure</h1>
+            <p class="hero-text-project">
+                Megha Super Structures is at the forefront of infrastructure development, 
+                specializing in flyovers, bridges, and commercial complexes that shape the future of urban mobility.
+            </p>
+             
+        </div>
+    </section>
+<!-----project new design-->
+<section class="body-p">
+    <div class="container-p">
+        <header class="header-p">
+            <h1 class="main-title-p">Engineering, Procurement and Construction Projects Around the World</h1>
+            <p class="intro-text-p">At Meghass, we design and build the world's toughest projects. Applying world-class expertise, we provide professional and technical solutions to deliver safe, well-executed, capital-efficient engineering, procurement and construction projects to clients globally.</p>
+        </header>
+
+        <main>
+            <div class="project-card-p">
+                <div class="project-info-p">
+                    <h2 class="project-title-p">Megha Super Structures</h2>
+                    <div class="project-meta-p">
+                        <div class="meta-item">
+                            <span class="meta-label">Client:</span> Megha
+                        </div>
+                        <div class="meta-item">
+                            <span class="meta-label">Location:</span> Bellari
+                        </div>
+                    </div>
+                    <div class="project-description-p">
+                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Esse nobis delectus modi voluptates amet id vel iusto, optio reprehenderit quidem quibusdam consectetur animi eos rem rerum porro maxime, adipisci praesentium!
+                        <br>
+                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Officiis quidem quos aut ut reprehenderit fugiat nihil, autem similique molestias aspernatur non doloremque excepturi voluptates pariatur nam architecto sit atque nostrum.
+                    </div>
+                </div>
+                <img src="/images/Screenshot (391).png" alt="LNG Canada Export Facility" class="project-image-p">
+            </div>
+        </main>
+    </div>
+    </section>
+    <!--project displayyyyyyyyyyyyyyyyyy-->
+    <section class="projects-section-project">
+        <div class="filter-buttons-project">
+            <button class="filter-btn-project active" data-filter="completed">Completed Projects</button>
+            <button class="filter-btn-project" data-filter="ongoing">Ongoing Projects</button>
+        </div>
+
+        <div class="projects-grid-project" id="projectsGrid">
+            <!-- Projects will be dynamically inserted here -->
+        </div>
+
+        <div class="pagination-project">
+            <button class="page-btn-project active">1</button>
+            <button class="page-btn-project">2</button>
+            <button class="page-btn-project">3</button>
+        </div>
+    </section>
+
+
+    <!--experience section here-->
+    <section class="experience-section-project">
+        <div class="experience-grid-project">
+            <div class="experience-card-project">
+                <i class="fas fa-building experience-icon-project"></i>
+                <div class="experience-number-project">25+</div>
+                <div class="experience-title-project">Years of Excellence</div>
+            </div>
+
+            <div class="experience-card-project">
+                <i class="fas fa-project-diagram experience-icon-project"></i>
+                <div class="experience-number-project">500+</div>
+                <div class="experience-title-project">Projects Completed</div>
+            </div>
+
+            <div class="experience-card-project">
+                <i class="fas fa-users experience-icon-project"></i>
+                <div class="experience-number-project">1000+</div>
+                <div class="experience-title-project">Expert Team Members</div>
+            </div>
+        </div>
+    </section>
+
+     <!----------------------------------Footer----------------------------------->
+     <footer class="py-16 px-6 bg-white">
+        <div class="max-w-7xl mx-auto">
+            <div class="footer-grid grid grid-cols-1 md:grid-cols-6 gap-8">
+                <!-- Logo Section -->
+                <div class="footer-logo-section md:col-span-1">
+                    <img src="/images/logoo megha.jpg" alt="kekaaa" style="width: 40px;height: 40px;"/>
+                    <h1 class="logo text-3xl mb-4">Megha Super Structures</h1>
+                    <p class="text-gray-600 mb-6">We build and create top-notch Flyovers wiht our world-class Engineers.</p>
+                    <div class="flex mb-6">
+                        <a href="#" class="social-icon"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" class="social-icon"><i class="fab fa-youtube"></i></a>
+                        <a href="#" class="social-icon"><i class="fab fa-instagram"></i></a>
+                        <a href="#" class="social-icon"><i class="fab fa-twitter"></i></a>
+                        <a href="#" class="social-icon"><i class="fab fa-pinterest-p"></i></a>
+                    </div>
+                </div>
+
+                <!-- Features Column -->
+                <div class="md:col-span-1">
+                    <h3 class="footer-heading">Core Business</h3>
+                    <a href="#" class="footer-link">Home</a>
+                    <a href="#" class="footer-link">About Us</a>
+                    <a href="#" class="footer-link">Core Business</a>
+                    <a href="#" class="footer-link">Projects</a>
+                    <a href="#" class="footer-link">Strengths</a>
+                    <a href="#" class="footer-link">Careers</a>
+                    <a href="#" class="footer-link">Contact Us</a>
+                    <a href="#" class="footer-link">Get in Touch</a>
+                     
+                </div>
+
+                <!-- Solutions Column -->
+                <div class="md:col-span-1">
+                    <h3 class="footer-heading">Solutions</h3>
+                    <a href="#" class="footer-link">Fantastic Engineers</a>
+                    <a href="#" class="footer-link">Quality Work and cement</a>
+                    <a href="#" class="footer-link">Quality Workers</a>
+                    <a href="#" class="footer-link">Building Flyovers</a>
+                </div>
+
+                <!-- Community Column -->
+                <div class="md:col-span-1">
+                    <h3 class="footer-heading">Community</h3>
+                    <a href="#" class="footer-link">Building Flyovers</a>
+                    <a href="#" class="footer-link">Building Flyovers</a>
+                    <a href="#" class="footer-link">Building Flyovers</a>
+                    <a href="#" class="footer-link">Building Flyovers</a>
+                    <a href="#" class="footer-link">Building Flyovers</a>
+                </div>
+
+                <!-- Resources Column -->
+                <div class="md:col-span-1">
+                    <h3 class="footer-heading">Resources</h3>
+                    <a href="#" class="footer-link">Plans</a>
+                    <a href="#" class="footer-link">For Foundation</a>
+                    <a href="#" class="footer-link">Licensing</a>
+                    <a href="#" class="footer-link">Help</a>
+                    <a href="#" class="footer-link">Engineers</a>
+                    <a href="#" class="footer-link">Workers</a>
+                    <a href="#" class="footer-link">Authentic Desing for Flyover</a>
+                    <a href="#" class="footer-link">Get in Touch</a>
+                </div>
+
+                <!-- Company Column -->
+                <div class="md:col-span-1">
+                    <h3 class="footer-heading">Reach Us</h3>
+                    <a href="#" class="footer-link"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-envelope-check-fill" viewBox="0 0 16 16">
+                        <path d="M.05 3.555A2 2 0 0 1 2 2h12a2 2 0 0 1 1.95 1.555L8 8.414zM0 4.697v7.104l5.803-3.558zM6.761 8.83l-6.57 4.026A2 2 0 0 0 2 14h6.256A4.5 4.5 0 0 1 8 12.5a4.49 4.49 0 0 1 1.606-3.446l-.367-.225L8 9.586zM16 4.697v4.974A4.5 4.5 0 0 0 12.5 8a4.5 4.5 0 0 0-1.965.45l-.338-.207z"/>
+                        <path d="M16 12.5a3.5 3.5 0 1 1-7 0 3.5 3.5 0 0 1 7 0m-1.993-1.679a.5.5 0 0 0-.686.172l-1.17 1.95-.547-.547a.5.5 0 0 0-.708.708l.774.773a.75.75 0 0 0 1.174-.144l1.335-2.226a.5.5 0 0 0-.172-.686"/>
+                      </svg>meghasuperstructure@yahoo.com</a>
+                    <a href="#" class="footer-link"> <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-telephone-inbound-fill" viewBox="0 0 16 16">
+                        <path fill-rule="evenodd" d="M1.885.511a1.745 1.745 0 0 1 2.61.163L6.29 2.98c.329.423.445.974.315 1.494l-.547 2.19a.68.68 0 0 0 .178.643l2.457 2.457a.68.68 0 0 0 .644.178l2.189-.547a1.75 1.75 0 0 1 1.494.315l2.306 1.794c.829.645.905 1.87.163 2.611l-1.034 1.034c-.74.74-1.846 1.065-2.877.702a18.6 18.6 0 0 1-7.01-4.42 18.6 18.6 0 0 1-4.42-7.009c-.362-1.03-.037-2.137.703-2.877zM15.854.146a.5.5 0 0 1 0 .708L11.707 5H14.5a.5.5 0 0 1 0 1h-4a.5.5 0 0 1-.5-.5v-4a.5.5 0 0 1 1 0v2.793L15.146.146a.5.5 0 0 1 .708 0"/>
+                      </svg>+91 9449419000</a>
+                    <a href="#" class="footer-link"> <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-telephone-inbound-fill" viewBox="0 0 16 16">
+                        <path fill-rule="evenodd" d="M1.885.511a1.745 1.745 0 0 1 2.61.163L6.29 2.98c.329.423.445.974.315 1.494l-.547 2.19a.68.68 0 0 0 .178.643l2.457 2.457a.68.68 0 0 0 .644.178l2.189-.547a1.75 1.75 0 0 1 1.494.315l2.306 1.794c.829.645.905 1.87.163 2.611l-1.034 1.034c-.74.74-1.846 1.065-2.877.702a18.6 18.6 0 0 1-7.01-4.42 18.6 18.6 0 0 1-4.42-7.009c-.362-1.03-.037-2.137.703-2.877zM15.854.146a.5.5 0 0 1 0 .708L11.707 5H14.5a.5.5 0 0 1 0 1h-4a.5.5 0 0 1-.5-.5v-4a.5.5 0 0 1 1 0v2.793L15.146.146a.5.5 0 0 1 .708 0"/>
+                      </svg>+91 9902398269</a>
+                    <a href="#" class="footer-link"> <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-substack" viewBox="0 0 16 16">
+                        <path d="M15 3.604H1v1.891h14v-1.89ZM1 7.208V16l7-3.926L15 16V7.208zM15 0H1v1.89h14z"/>
+                      </svg>Reg Office : Megha Estates</a>
+                    <a href="#" class="footer-link">Siruguppa Road , Vakkareni Camp  ,  </a>
+                    <a href="#" class="footer-link">Near Brilliant School</a>
+                    <a href="#" class="footer-link">Bellari - 583 103 Karnataka</a>
+                </div>
+            </div>
+
+            <div class="mt-12 pt-8 border-t border-gray-200">
+                <p class="text-gray-600 text-sm">© meghasuperstructures 2025</p>
+            </div>
+        </div>
+    </footer>
+    <script>
+        // Sample project data
+        const projects = {
+            completed: [
+                {
+                    image: '',
+                    title: 'Metro Flyover Project',
+                    location: 'Mumbai, Maharashtra',
+                    category: 'completed'
+                },
+                {
+                    image: '/api/placeholder/600/400',
+                    title: 'Highway Extension Bridge',
+                    location: 'Delhi NCR',
+                    category: 'completed'
+                },
+                {
+                    image: '/api/placeholder/600/400',
+                    title: 'Highway Extension Bridge',
+                    location: 'Delhi NCR',
+                    category: 'completed'
+                },
+                {
+                    image: '/api/placeholder/600/400',
+                    title: 'Highway Extension Bridge',
+                    location: 'Delhi NCR',
+                    category: 'completed'
+                },
+                {
+                    image: '/api/placeholder/600/400',
+                    title: 'Highway Extension Bridge',
+                    location: 'Delhi NCR',
+                    category: 'completed'
+                },
+                {
+                    image: '/api/placeholder/600/400',
+                    title: 'Highway Extension Bridge',
+                    location: 'Delhi NCR',
+                    category: 'completed'
+                },
+                 
+                // Add more completed projects...
+            ],
+            ongoing: [
+                {
+                    image: '/api/placeholder/600/400',
+                    title: 'Smart City Interchange',
+                    location: 'Bangalore, Karnataka',
+                    category: 'ongoing'
+                },
+                {
+                    image: '/api/placeholder/600/400',
+                    title: 'Coastal Highway Bridge',
+                    location: 'Chennai, Tamil Nadu',
+                    category: 'ongoing'
+                },
+                {
+                    image: '/api/placeholder/600/400',
+                    title: 'Coastal Highway Bridge',
+                    location: 'Chennai, Tamil Nadu',
+                    category: 'ongoing'
+                },
+                {
+                    image: '/api/placeholder/600/400',
+                    title: 'Coastal Highway Bridge',
+                    location: 'Chennai, Tamil Nadu',
+                    category: 'ongoing'
+                },
+                {
+                    image: '/api/placeholder/600/400',
+                    title: 'Coastal Highway Bridge',
+                    location: 'Chennai, Tamil Nadu',
+                    category: 'ongoing'
+                },
+                {
+                    image: '/api/placeholder/600/400',
+                    title: 'Coastal Highway Bridge',
+                    location: 'Chennai, Tamil Nadu',
+                    category: 'ongoing'
+                },
+                
+                
+                // Add more ongoing projects...
+            ]
+        };
+
+        function createProjectCard(project) {
+            return `
+                <div class="project-card-project">
+                    <img src="${project.image}" alt="${project.title}" class="project-image-project">
+                    <div class="project-info-project">
+                        <h3 class="project-title-project">${project.title}</h3>
+                        <div class="project-location-project">
+                            <i class="fas fa-map-marker-alt"></i>
+                            ${project.location}
+                        </div>
+                        <a href="#" class="read-more-project">Read More</a>
+                    </div>
+                </div>
+            `;
+        }
+
+        function displayProjects(category, page = 1) {
+            const projectsPerPage = 9;
+            const start = (page - 1) * projectsPerPage;
+            const end = start + projectsPerPage;
+            const projectsToShow = projects[category].slice(start, end);
+            
+            const grid = document.getElementById('projectsGrid');
+            grid.innerHTML = '';
+            
+            projectsToShow.forEach(project => {
+                grid.innerHTML += createProjectCard(project);
+            });
+        }
+
+        // Event listeners
+        document.querySelectorAll('.filter-btn-project').forEach(btn => {
+            btn.addEventListener('click', (e) => {
+                document.querySelectorAll('.filter-btn-project').forEach(b => b.classList.remove('active'));
+                e.target.classList.add('active');
+                displayProjects(e.target.dataset.filter);
+            });
+        });
+
+        document.querySelectorAll('.page-btn-project').forEach(btn => {
+            btn.addEventListener('click', (e) => {
+                document.querySelectorAll('.page-btn-project').forEach(b => b.classList.remove('active'));
+                e.target.classList.add('active');
+                const activeFilter = document.querySelector('.filter-btn-project.active').dataset.filter;
+                displayProjects(activeFilter, parseInt(e.target.textContent));
+            });
+        });
+
+        // Initial load
+        displayProjects('completed');
+    </script>
+</body>
+</html>

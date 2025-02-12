@@ -1,0 +1,847 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Construction Company</title>
+    <link rel="stylesheet" href="styles.css">
+    <!-- Add Lucide icons via CDN -->
+    <script src="https://cdn.jsdelivr.net/npm/lucide@latest/dist/umd/lucide.min.js"></script>
+    <link href="https://unpkg.com/tailwindcss@2.0.2/dist/tailwind.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <style>
+        body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+    background-color: #f8f9fa;
+    color: #333;
+}
+
+.container {
+    width: 90%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+/* Hero Section */
+.hero {
+    background: url('/images/Screenshot\ \(391\).png') no-repeat center center/cover;
+    height: 60vh;
+    position: relative;
+}
+
+.hero-overlay {
+    background: rgba(0, 0, 0, 0.6);
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: white;
+}
+
+.hero h1 {
+    font-size: 2.5em;
+    margin-bottom: 10px;
+}
+
+.hero p {
+    font-size: 1.2em;
+    opacity: 0.9;
+}
+
+/* About Section */
+.about {
+    background: #fff;
+    padding: 60px 0;
+    text-align: center;
+}
+
+.about h2 {
+    font-size: 2.5em;
+    margin-bottom: 20px;
+    color: #333;
+}
+
+.about p {
+    font-size: 1.1em;
+    color: #555;
+    line-height: 1.8;
+    margin-bottom: 20px;
+}
+
+/* Stats Section */
+.stats {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+    margin-top: 40px;
+}
+
+.stat-item {
+    background: #f1f3f5;
+    padding: 20px;
+    border-radius: 8px;
+    text-align: center;
+    flex: 1;
+    min-width: 200px;
+    max-width: 250px;
+}
+
+.stat-item i {
+    display: block;
+    font-size: 2.5em;
+    color: #007bff;
+    margin-bottom: 10px;
+}
+
+.stat-item h3 {
+    font-size: 1.5em;
+    margin-bottom: 5px;
+    color: #333;
+}
+
+.stat-item p {
+    color: #777;
+}
+
+/* Responsive Design */
+@media (min-width: 768px) {
+    .hero {
+        height: 80vh;
+    }
+
+    .hero h1 {
+        font-size: 4em;
+    }
+
+    .hero p {
+        font-size: 1.5em;
+    }
+
+    .about h2 {
+        font-size: 3em;
+    }
+}
+/* about us sectin here css*/
+.bodyofabout{
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+    margin: 0;
+    padding: 0;
+    background-color: #f8f9fa;
+    color: #333;
+    overflow-x: hidden;
+}
+
+/* About Us Section */
+.about-section {
+    padding: 60px 20px;
+    background-color: #fff;
+}
+
+.container-about {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    max-width: 1200px;
+    margin: 0 auto;
+    gap: 30px;
+}
+
+.content-about {
+    flex: 1;
+    min-width: 300px;
+    max-width: 600px;
+}
+
+.heading-about {
+    font-size: 2.5em;
+    color: #007bff;
+    margin-bottom: 10px;
+}
+
+.subheading-about {
+    font-size: 1.5em;
+    color: #333;
+    margin-bottom: 20px;
+}
+
+.text-about {
+    font-size: 1.1em;
+    color: #555;
+    line-height: 1.8;
+    margin-bottom: 15px;
+}
+
+.list-about {
+    list-style-type: disc;
+    margin-left: 20px;
+    color: #555;
+}
+
+.image-about {
+    flex: 1;
+    min-width: 300px;
+    max-width: 600px;
+    text-align: center;
+}
+
+.img-about {
+    width: 100%;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s;
+}
+
+.img-about:hover {
+    transform: scale(1.05);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .container-about {
+        flex-direction: column;
+    }
+
+    .content-about, .image-about {
+        max-width: 100%;
+        text-align: center;
+    }
+
+    .heading-about {
+        font-size: 2em;
+    }
+
+    .subheading-about {
+        font-size: 1.3em;
+    }
+}
+
+
+
+.bodyofaboutsection-2 {
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+    margin: 0;
+    padding: 0;
+    background-color: #f5f5f5;
+    color: #333;
+    overflow-x: hidden;
+}
+
+/* About Us Section */
+.about-section {
+    padding: 60px 20px;
+    background-color: #fff;
+}
+
+.container-about {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    max-width: 1200px;
+    margin: 0 auto;
+    gap: 30px;
+}
+
+.content-about {
+    flex: 1;
+    min-width: 300px;
+    max-width: 600px;
+}
+
+.heading-about {
+    font-size: 2.5em;
+    color: #007bff;
+    margin-bottom: 10px;
+}
+
+.subheading-about {
+    font-size: 1.5em;
+    color: #333;
+    margin-bottom: 20px;
+}
+
+.text-about {
+    font-size: 1.1em;
+    color: #555;
+    line-height: 1.8;
+    margin-bottom: 15px;
+}
+
+.image-about {
+    flex: 1;
+    min-width: 300px;
+    max-width: 600px;
+    text-align: center;
+}
+
+.img-about {
+    width: 100%;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s;
+}
+
+.img-about:hover {
+    transform: scale(1.05);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .container-about {
+        flex-direction: column;
+    }
+
+    .content-about, .image-about {
+        max-width: 100%;
+        text-align: center;
+    }
+
+    .heading-about {
+        font-size: 2em;
+    }
+
+    .subheading-about {
+        font-size: 1.3em;
+    }
+}
+
+ /* Section of about -3 */
+ .bodyofsection-3 {
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+    margin: 0;
+    padding: 0;
+    background-color: #f5f5f5;
+    color: #333;
+    overflow-x: hidden;
+}
+
+/* About Us Section */
+.about-section {
+    padding: 60px 20px;
+    background-color: #fff;
+}
+
+.container-about {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    max-width: 1200px;
+    margin: 0 auto;
+    gap: 30px;
+}
+
+.content-about {
+    flex: 1;
+    min-width: 300px;
+    max-width: 600px;
+    text-align: left;
+}
+
+.heading-about {
+    font-size: 2.5em;
+    color: #007bff;
+    margin-bottom: 10px;
+}
+
+.subheading-about {
+    font-size: 1.5em;
+    color: #333;
+    margin-bottom: 20px;
+}
+
+.text-about {
+    font-size: 1.1em;
+    color: #555;
+    line-height: 1.8;
+    margin-bottom: 15px;
+}
+
+.image-about {
+    flex: 1;
+    min-width: 300px;
+    max-width: 600px;
+    text-align: center;
+}
+
+.img-about {
+    width: 100%;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s;
+}
+
+.img-about:hover {
+    transform: scale(1.05);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .container-about {
+        flex-direction: column;
+    }
+
+    .content-about, .image-about {
+        max-width: 100%;
+        text-align: center;
+    }
+
+    .heading-about {
+        font-size: 2em;
+    }
+
+    .subheading-about {
+        font-size: 1.3em;
+    }
+}
+
+/*footer*/
+.footer-link {
+            color: #6B7280;
+            transition: color 0.2s ease;
+            display: block;
+            padding: 4px 0;
+        }
+
+        .footer-link:hover {
+            color: #111827;
+        }
+
+        .social-icon {
+            color: #4B5563;
+            transition: all 0.2s ease;
+            margin-right: 1rem;
+        }
+
+        .social-icon:hover {
+            color: #111827;
+            transform: translateY(-2px);
+        }
+
+        .footer-heading {
+            color: #111827;
+            font-weight: 600;
+            margin-bottom: 1rem;
+        }
+
+        .logo {
+            font-family: 'Playfair Display', serif;
+            font-weight: bold;
+            font-style: italic;
+        }
+
+        @media (max-width: 768px) {
+            .footer-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            
+            .footer-logo-section {
+                grid-column: span 2;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .footer-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .footer-logo-section {
+                grid-column: span 1;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-overlay">
+            <div class="hero-content">
+                <h1>Building Your Dreams Into Reality</h1>
+                <p>Excellence in construction</p>
+            </div>
+        </div>
+    </section>
+
+
+
+    <!--biut us aection here html-->
+    <!-- About Us Section -->
+    <section class="bodyofabout">
+        <section class="about-section" id="about">
+            <div class="container-about">
+                <div class="content-about" data-aos="fade-up">
+                    <h2 class="heading-about">A Legacy of Excellence</h2>
+                    <h3 class="subheading-about">ACTS' Journey in Construction Quality & Safety</h3>
+                    <p class="text-about">
+                        Since ACTS' inception in 1996, we have established ourselves as the regional leader in construction consultancy services. 
+                        With a deep focus on materials testing and geo-engineering, ACTS has earned a reputation for delivering comprehensive and 
+                        reliable solutions throughout the Middle East, Africa, and Southeast Asia.
+                    </p>
+                    <p class="text-about">
+                        Driven by a commitment to continuous improvement, ACTS has launched a journey of strategic expansion. Today, the company 
+                        boasts six specialized divisions, each working seamlessly to provide clients with unparalleled expertise:
+                    </p>
+                    <ul class="list-about">
+                        <li><strong>Testing Services:</strong> Rigorous material and environmental testing ensures project integrity and performance.</li>
+                        <li><strong>Inspection Services:</strong> Advanced technology and experienced inspectors guarantee quality and safety.</li>
+                        <li><strong>Certifications:</strong> Providing peace of mind through reliable certification programs.</li>
+                        <li><strong>Engineering Services:</strong> Comprehensive solutions for complex construction challenges.</li>
+                        <li><strong>Technical Standards & Solutions:</strong> Home to the world’s largest library of construction standards.</li>
+                        <li><strong>Training and Conferences:</strong> Industry leadership through extensive training and the largest concrete conference in the MEA region.</li>
+                    </ul>
+                </div>
+                <div class="image-about" data-aos="fade-up">
+                    <img src="/images/Screenshot (391).png" alt="ACTS Construction" class="img-about">
+                </div>
+            </div>
+        </section>
+        </section>
+
+         <!-- About Us Section -2 -->
+    <section class="about-section" id="about">
+        <div class="container-about">
+            <div class="content-about" data-aos="fade-up">
+                <h2 class="heading-about">Megha Super Structures</h2>
+                <h3 class="subheading-about">Megha Super Structures</h3>
+                <p class="text-about">
+                    Lorem ipsum dolor sit, amet consectetur adipisicing elit. Non tempora soluta minima quasi laudantium reiciendis debitis! Esse, libero quos dicta autem excepturi doloribus officiis totam, odio aliquam iusto voluptate consequuntur.
+                </p>
+                <p class="text-about">
+                    
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Error maiores laboriosam voluptate molestiae fugiat, sunt est necessitatibus eius neque sequi qui. Error vitae atque eos nulla reiciendis, excepturi molestiae sed?
+                </p>
+            </div>
+            <div class="image-about" data-aos="fade-up">
+                <img src="https://images.unsplash.com/photo-1503387762-592deb58ef4e?auto=format&fit=crop&q=80&w=800" alt="ACI Partnership" class="img-about">
+            </div>
+        </div>
+    </section>
+    <!-- About Us Section 3-->
+    <section class="about-section" id="about">
+        <div class="container-about">
+            <div class="content-about" data-aos="fade-up">
+                <h2 class="heading-about">Empowering Informed Construction Decisions</h2>
+                <h3 class="subheading-about">By Providing International Codes & Standards</h3>
+                <p class="text-about">
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Ratione perferendis quis, explicabo quibusdam omnis veritatis, unde architecto, ea recusandae soluta perspiciatis culpa qui dolores dicta dolorem quisquam accusantium porro assumenda!
+                </p>
+                <p class="text-about">
+                    Lorem ipsum, dolor sit amet consectetur adipisicing elit. Libero fugiat tempora iste quae enim autem sapiente, sequi ipsum. Aliquid mollitia magni dolorum assumenda laudantium accusantium et reiciendis, ipsa eos nesciunt.
+                </p>
+                <p class="text-about">
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Suscipit eaque similique, numquam accusamus obcaecati quod veniam nisi voluptate delectus ipsum totam dicta, cum ipsa nihil labore at eos tempora laudantium!
+                </p>
+            </div>
+            <div class="image-about" data-aos="fade-up">
+                <img src="/images/CNG-PIC" alt="Construction Safety Equipment" class="img-about">
+            </div>
+        </div>
+    </section>
+    <!-- About Section -->
+    <section class="about">
+        <div class="container">
+            <h2>About Our Company</h2>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nulla quas ipsa perspiciatis distinctio asperiores fuga animi ea nobis cumque velit atque repellat quam consectetur perferendis sequi, repudiandae dicta aliquam placeat.</p>
+
+            <!-- Stats/Features -->
+            <div class="stats">
+                <div class="stat-item">
+                    <i class="lucide" data-lucide="hammer"></i>
+                    <h3>25+ Years</h3>
+                    <p>Industry Experience</p>
+                </div>
+                <div class="stat-item">
+                    <i class="lucide" data-lucide="building-2"></i>
+                    <h3>500+</h3>
+                    <p>Projects Completed</p>
+                </div>
+                <div class="stat-item">
+                    <i class="lucide" data-lucide="users"></i>
+                    <h3>100+</h3>
+                    <p>Expert Team Members</p>
+                </div>
+                <div class="stat-item">
+                    <i class="lucide" data-lucide="trophy"></i>
+                    <h3>15+</h3>
+                    <p>Industry Awards</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!----------------------------------Footer----------------------------------->
+    <footer class="py-16 px-6 bg-white">
+        <div class="max-w-7xl mx-auto">
+            <div class="footer-grid grid grid-cols-1 md:grid-cols-6 gap-8">
+                <!-- Logo Section -->
+                <div class="footer-logo-section md:col-span-1">
+                    <img src="/images/logoo megha.jpg" alt="kekaaa" style="width: 40px;height: 40px;"/>
+                    <h1 class="logo text-3xl mb-4">Megha Super Structures</h1>
+                    <p class="text-gray-600 mb-6">We build and create top-notch Flyovers wiht our world-class Engineers.</p>
+                    <div class="flex mb-6">
+                        <a href="#" class="social-icon"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" class="social-icon"><i class="fab fa-youtube"></i></a>
+                        <a href="#" class="social-icon"><i class="fab fa-instagram"></i></a>
+                        <a href="#" class="social-icon"><i class="fab fa-twitter"></i></a>
+                        <a href="#" class="social-icon"><i class="fab fa-pinterest-p"></i></a>
+                    </div>
+                </div>
+
+                <!-- Features Column -->
+                <div class="md:col-span-1">
+                    <h3 class="footer-heading">Core Business</h3>
+                    <a href="#" class="footer-link">Home</a>
+                    <a href="#" class="footer-link">About Us</a>
+                    <a href="#" class="footer-link">Core Business</a>
+                    <a href="#" class="footer-link">Projects</a>
+                    <a href="#" class="footer-link">Strengths</a>
+                    <a href="#" class="footer-link">Careers</a>
+                    <a href="#" class="footer-link">Contact Us</a>
+                    <a href="#" class="footer-link">Get in Touch</a>
+                     
+                </div>
+
+                <!-- Solutions Column -->
+                <div class="md:col-span-1">
+                    <h3 class="footer-heading">Solutions</h3>
+                    <a href="#" class="footer-link">Fantastic Engineers</a>
+                    <a href="#" class="footer-link">Quality Work and cement</a>
+                    <a href="#" class="footer-link">Quality Workers</a>
+                    <a href="#" class="footer-link">Building Flyovers</a>
+                </div>
+
+                <!-- Community Column -->
+                <div class="md:col-span-1">
+                    <h3 class="footer-heading">Community</h3>
+                    <a href="#" class="footer-link">Building Flyovers</a>
+                    <a href="#" class="footer-link">Building Flyovers</a>
+                    <a href="#" class="footer-link">Building Flyovers</a>
+                    <a href="#" class="footer-link">Building Flyovers</a>
+                    <a href="#" class="footer-link">Building Flyovers</a>
+                </div>
+
+                <!-- Resources Column -->
+                <div class="md:col-span-1">
+                    <h3 class="footer-heading">Resources</h3>
+                    <a href="#" class="footer-link">Plans</a>
+                    <a href="#" class="footer-link">For Foundation</a>
+                    <a href="#" class="footer-link">Licensing</a>
+                    <a href="#" class="footer-link">Help</a>
+                    <a href="#" class="footer-link">Engineers</a>
+                    <a href="#" class="footer-link">Workers</a>
+                    <a href="#" class="footer-link">Authentic Desing for Flyover</a>
+                    <a href="#" class="footer-link">Get in Touch</a>
+                </div>
+
+                <!-- Company Column -->
+                <div class="md:col-span-1">
+                    <h3 class="footer-heading">Reach Us</h3>
+                    <a href="#" class="footer-link"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-envelope-check-fill" viewBox="0 0 16 16">
+                        <path d="M.05 3.555A2 2 0 0 1 2 2h12a2 2 0 0 1 1.95 1.555L8 8.414zM0 4.697v7.104l5.803-3.558zM6.761 8.83l-6.57 4.026A2 2 0 0 0 2 14h6.256A4.5 4.5 0 0 1 8 12.5a4.49 4.49 0 0 1 1.606-3.446l-.367-.225L8 9.586zM16 4.697v4.974A4.5 4.5 0 0 0 12.5 8a4.5 4.5 0 0 0-1.965.45l-.338-.207z"/>
+                        <path d="M16 12.5a3.5 3.5 0 1 1-7 0 3.5 3.5 0 0 1 7 0m-1.993-1.679a.5.5 0 0 0-.686.172l-1.17 1.95-.547-.547a.5.5 0 0 0-.708.708l.774.773a.75.75 0 0 0 1.174-.144l1.335-2.226a.5.5 0 0 0-.172-.686"/>
+                      </svg>meghasuperstructure@yahoo.com</a>
+                    <a href="#" class="footer-link"> <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-telephone-inbound-fill" viewBox="0 0 16 16">
+                        <path fill-rule="evenodd" d="M1.885.511a1.745 1.745 0 0 1 2.61.163L6.29 2.98c.329.423.445.974.315 1.494l-.547 2.19a.68.68 0 0 0 .178.643l2.457 2.457a.68.68 0 0 0 .644.178l2.189-.547a1.75 1.75 0 0 1 1.494.315l2.306 1.794c.829.645.905 1.87.163 2.611l-1.034 1.034c-.74.74-1.846 1.065-2.877.702a18.6 18.6 0 0 1-7.01-4.42 18.6 18.6 0 0 1-4.42-7.009c-.362-1.03-.037-2.137.703-2.877zM15.854.146a.5.5 0 0 1 0 .708L11.707 5H14.5a.5.5 0 0 1 0 1h-4a.5.5 0 0 1-.5-.5v-4a.5.5 0 0 1 1 0v2.793L15.146.146a.5.5 0 0 1 .708 0"/>
+                      </svg>+91 9449419000</a>
+                    <a href="#" class="footer-link"> <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-telephone-inbound-fill" viewBox="0 0 16 16">
+                        <path fill-rule="evenodd" d="M1.885.511a1.745 1.745 0 0 1 2.61.163L6.29 2.98c.329.423.445.974.315 1.494l-.547 2.19a.68.68 0 0 0 .178.643l2.457 2.457a.68.68 0 0 0 .644.178l2.189-.547a1.75 1.75 0 0 1 1.494.315l2.306 1.794c.829.645.905 1.87.163 2.611l-1.034 1.034c-.74.74-1.846 1.065-2.877.702a18.6 18.6 0 0 1-7.01-4.42 18.6 18.6 0 0 1-4.42-7.009c-.362-1.03-.037-2.137.703-2.877zM15.854.146a.5.5 0 0 1 0 .708L11.707 5H14.5a.5.5 0 0 1 0 1h-4a.5.5 0 0 1-.5-.5v-4a.5.5 0 0 1 1 0v2.793L15.146.146a.5.5 0 0 1 .708 0"/>
+                      </svg>+91 9902398269</a>
+                    <a href="#" class="footer-link"> <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-substack" viewBox="0 0 16 16">
+                        <path d="M15 3.604H1v1.891h14v-1.89ZM1 7.208V16l7-3.926L15 16V7.208zM15 0H1v1.89h14z"/>
+                      </svg>Reg Office : Megha Estates</a>
+                    <a href="#" class="footer-link">Siruguppa Road , Vakkareni Camp  ,  </a>
+                    <a href="#" class="footer-link">Near Brilliant School</a>
+                    <a href="#" class="footer-link">Bellari - 583 103 Karnataka</a>
+                </div>
+            </div>
+
+            <div class="mt-12 pt-8 border-t border-gray-200">
+                <p class="text-gray-600 text-sm">© meghasuperstructures 2025</p>
+            </div>
+        </div>
+    </footer>
+    <script>
+        //navbar
+        document.addEventListener("DOMContentLoaded", () => {
+            const menuToggle = document.getElementById('menu-toggle');
+            const sidebar = document.getElementById('sidebar');
+            const sidebarOverlay = document.getElementById('sidebar-overlay');
+            const closeMenu = document.getElementById('close-menu');
+
+            menuToggle.addEventListener('click', () => {
+                sidebar.classList.toggle('open');
+                sidebarOverlay.classList.toggle('open');
+            });
+
+            closeMenu.addEventListener('click', () => {
+                sidebar.classList.remove('open');
+                sidebarOverlay.classList.remove('open');
+            });
+
+            sidebarOverlay.addEventListener('click', () => {
+                sidebar.classList.remove('open');
+                sidebarOverlay.classList.remove('open');
+            });
+        });
+
+
+        /carousel section here js/
+        const slides = document.querySelectorAll('.carousel-slide');
+        const overlay = document.querySelector('.transition-overlay');
+        let currentSlide = 0;
+
+        function triggerTransition() {
+            overlay.classList.add('transition-active');
+            setTimeout(() => {
+                overlay.classList.remove('transition-active');
+            }, 1500);
+        }
+
+        function showSlide(index) {
+            slides.forEach(slide => {
+                slide.classList.remove('active', 'exit');
+            });
+            
+            slides[currentSlide].classList.add('exit');
+            slides[index].classList.add('active');
+            triggerTransition();
+        }
+
+        function nextSlide() {
+            currentSlide = (currentSlide + 1) % slides.length;
+            showSlide(currentSlide);
+        }
+
+        // Start with first slide
+        slides[0].classList.add('active');
+
+        // Change slides every 3 seconds
+        setInterval(nextSlide, 3000);
+
+
+ //about
+ document.querySelectorAll('.find-out-more').forEach(link => {
+            link.addEventListener('click', (e) => {
+                e.preventDefault();
+                alert('You clicked: ' + e.target.closest('.service-content').querySelector('h2').textContent);
+            });
+        });
+
+        /*services section here js ********************************/
+        // Scroll animation
+        const sections = document.querySelector('.expertise-section');
+        const observerrr = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, {
+            threshold: 0.2
+        });
+
+        observerrr.observe(sections);
+        /*why choose us megha section js ************************/
+        const observerk = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                    
+                    // If it's the main section, animate all boxes
+                    if (entry.target.classList.contains('why-choose-section')) {
+                        const boxes = entry.target.querySelectorAll('.box');
+                        boxes.forEach((box, index) => {
+                            setTimeout(() => {
+                                box.classList.add('visible');
+                            }, index * 200); // Stagger the animations
+                        });
+                    }
+                }
+            });
+        }, {
+            threshold: 0.1
+        });
+
+        // Observe the section
+        observerk.observe(document.querySelector('.why-choose-section'));
+
+/*projects section here projects projecst projects projects */ 
+// Automatic slider
+        const track = document.querySelector('.slider-track');
+        const cards = document.querySelectorAll('.product-card');
+        let currentIndex = 0;
+
+        // Clone cards for infinite scroll
+        cards.forEach(card => {
+            const clone = card.cloneNode(true);
+            track.appendChild(clone);
+        });
+
+        function moveSlider() {
+            currentIndex++;
+            const offset = currentIndex * (320 + 20); // card width + gap
+            track.style.transform = translateX(`-${offset}px`);
+
+            if (currentIndex >= cards.length) {
+                setTimeout(() => {
+                    track.style.transition = 'none';
+                    currentIndex = 0;
+                    track.style.transform = 'translateX(0)';
+                    setTimeout(() => {
+                        track.style.transition = 'transform 0.5s ease';
+                    }, 50);
+                }, 500);
+            }
+        }
+
+        // Scroll animation
+        const section = document.querySelector('.slider-section');
+        const observerr = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, {
+            threshold: 0.2
+        });
+
+        observerr.observe(section);
+
+        // Start automatic sliding
+        setInterval(moveSlider, 3000);
+
+        /*3rd one section js here ****************/
+         // Intersection Observer for scroll animation
+         const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, {
+            threshold: 0.1
+        });
+
+        // Observe the finance section
+        observer.observe(document.querySelector('.finance-section'));
+
+        // Add visible class on page load after a small delay
+        window.addEventListener('load', () => {
+            setTimeout(() => {
+                document.querySelector('.finance-section').classList.add('visible');
+            }, 300);
+        });
+    </script>
+</body>
+</html>
