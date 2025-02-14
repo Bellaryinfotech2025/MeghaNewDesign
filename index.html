@@ -3,24 +3,515 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Megha Super Structures - Labour choice</title>
+    
+    <title>Megha Super Structures</title>
     <link rel="icon" href="/images/logoo megha.jpg" type="image/jpg">
     <link href="https://unpkg.com/tailwindcss@2.0.2/dist/tailwind.min.css" rel="stylesheet">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
-
-
     <style>
-         * {
+
+        * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
             
         }
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+ 
+ :root{
+     --item1-transform: translateX(-100%) translateY(-5%) scale(1.5);
+     --item1-filter: blur(30px);
+     --item1-zIndex: 11;
+     --item1-opacity: 0;
+ 
+     --item2-transform: translateX(0);
+     --item2-filter: blur(0px);
+     --item2-zIndex: 10;
+     --item2-opacity: 1;
+ 
+     --item3-transform: translate(50%,10%) scale(0.8);
+     --item3-filter: blur(10px);
+     --item3-zIndex: 9;
+     --item3-opacity: 1;
+ 
+     --item4-transform: translate(90%,20%) scale(0.5);
+     --item4-filter: blur(30px);
+     --item4-zIndex: 8;
+     --item4-opacity: 1;
+     
+     --item5-transform: translate(120%,30%) scale(0.3);
+     --item5-filter: blur(40px);
+     --item5-zIndex: 7;
+     --item5-opacity: 0;
+ }
+ header{
+     width: 1140px;
+     max-width: 90%;
+     display: flex;
+     justify-content: space-between;
+     margin: auto;
+     height: 50px;
+     align-items: center;
+ }
+ header .logo{
+     font-weight: bold;
+ }
+ header nav a{
+     margin-left: 30px;
+     text-decoration: none;
+     color: #555;
+     font-weight: 500;
+ }
+ 
+ /* carousel */
+ .carousel{
+     position: relative;
+     height: 800px;
+     overflow: hidden;
+     margin-top: -50px;
+ }
+ .carousel .list{
+     position: absolute;
+     width: 1140px;
+     max-width: 90%;
+     height: 80%;
+     left: 50%;
+     transform: translateX(-50%);
+ }
+ .carousel .list .item{
+     position: absolute;
+     left: 0%;
+     width: 70%;
+     height: 100%;
+     font-size: 15px;
+     transition: left 0.5s, opacity 0.5s, width 0.5s;
+ }
+ .carousel .list .item:nth-child(n + 6){
+     opacity: 0;
+ }
+ .carousel .list .item:nth-child(2){
+     z-index: 10;
+     transform: translateX(0);
+ }
+ .carousel .list .item img{
+     width: 50%;
+     position: absolute;
+     right: 0;
+     top: 50%;
+     transform: translateY(-50%);
+     transition: right 1.5s;
+ }
+ 
+ .carousel .list .item .introduce{
+     opacity: 0;
+     pointer-events: none;
+ }
+ .carousel .list .item:nth-child(2) .introduce{
+     opacity: 1;
+     pointer-events: auto;
+     width: 400px;
+     position: absolute;
+     top: 50%;
+     transform:  translateY(-50%);
+     transition: opacity 0.5s;
+ }
+ .carousel .list .item .introduce .title{
+     font-size: 2em;
+     font-weight: 500;
+     line-height: 1em;
+ }
+ .carousel .list .item .introduce .topic{
+     font-size: 40px;
+     font-weight: 500;
+ }
+ .carousel .list .item .introduce .des{
+     font-size: small;
+     color: #5559;
+ }
+ .carousel .list .item .introduce .seeMore{
+     font-family: Poppins;
+     margin-top: 1.2em;
+     padding: 5px 0;
+     border: none;
+     border-bottom: 1px solid #555;
+     background-color: transparent;
+     font-weight: bold;
+     letter-spacing: 3px;
+     transition: background 0.5s;
+ }
+ .carousel .list .item .introduce .seeMore:hover{
+     background: #eee;
+ }
+ .carousel .list .item:nth-child(1){
+     transform: var(--item1-transform);
+     filter: var(--item1-filter);
+     z-index: var(--item1-zIndex);
+     opacity: var(--item1-opacity);
+     pointer-events: none;
+ }
+ .carousel .list .item:nth-child(3){
+     transform: var(--item3-transform);
+     filter: var(--item3-filter);
+     z-index: var(--item3-zIndex);
+ }
+ .carousel .list .item:nth-child(4){
+     transform: var(--item4-transform);
+     filter: var(--item4-filter);
+     z-index: var(--item4-zIndex);
+ }
+ .carousel .list .item:nth-child(5){
+     transform: var(--item5-transform);
+     filter: var(--item5-filter);
+     opacity: var(--item5-opacity);
+     pointer-events: none;
+ }
+ /* animation text in item2 */
+ .carousel .list .item:nth-child(2) .introduce .title,
+ .carousel .list .item:nth-child(2) .introduce .topic,
+ .carousel .list .item:nth-child(2) .introduce .des,
+ .carousel .list .item:nth-child(2) .introduce .seeMore{
+     opacity: 0;
+     animation: showContent 0.5s 1s ease-in-out 1 forwards;
+ }
+ @keyframes showContent{
+     from{
+         transform: translateY(-30px);
+         filter: blur(10px);
+     }to{
+         transform: translateY(0);
+         opacity: 1;
+         filter: blur(0px);
+     }
+ }
+ .carousel .list .item:nth-child(2) .introduce .topic{
+     animation-delay: 1.2s;
+ }
+ .carousel .list .item:nth-child(2) .introduce .des{
+     animation-delay: 1.4s;
+ }
+ .carousel .list .item:nth-child(2) .introduce .seeMore{
+     animation-delay: 1.6s;
+ }
+ /* next click */
+ .carousel.next .item:nth-child(1){
+     animation: transformFromPosition2 0.5s ease-in-out 1 forwards;
+ }
+ @keyframes transformFromPosition2{
+     from{
+         transform: var(--item2-transform);
+         filter: var(--item2-filter);
+         opacity: var(--item2-opacity);
+     }
+ }
+ .carousel.next .item:nth-child(2){
+     animation: transformFromPosition3 0.7s ease-in-out 1 forwards;
+ }
+ @keyframes transformFromPosition3{
+     from{
+         transform: var(--item3-transform);
+         filter: var(--item3-filter);
+         opacity: var(--item3-opacity);
+     }
+ }
+ .carousel.next .item:nth-child(3){
+     animation: transformFromPosition4 0.9s ease-in-out 1 forwards;
+ }
+ @keyframes transformFromPosition4{
+     from{
+         transform: var(--item4-transform);
+         filter: var(--item4-filter);
+         opacity: var(--item4-opacity);
+     }
+ }
+ .carousel.next .item:nth-child(4){
+     animation: transformFromPosition5 1.1s ease-in-out 1 forwards;
+ }
+ @keyframes transformFromPosition5{
+     from{
+         transform: var(--item5-transform);
+         filter: var(--item5-filter);
+         opacity: var(--item5-opacity);
+     }
+ }
+ /* previous */
+ .carousel.prev .list .item:nth-child(5){
+     animation: transformFromPosition4 0.5s ease-in-out 1 forwards;
+ }
+ .carousel.prev .list .item:nth-child(4){
+     animation: transformFromPosition3 0.7s ease-in-out 1 forwards;
+ }
+ .carousel.prev .list .item:nth-child(3){
+     animation: transformFromPosition2 0.9s ease-in-out 1 forwards;
+ }
+ .carousel.prev .list .item:nth-child(2){
+     animation: transformFromPosition1 1.1s ease-in-out 1 forwards;
+ }
+ @keyframes transformFromPosition1{
+     from{
+         transform: var(--item1-transform);
+         filter: var(--item1-filter);
+         opacity: var(--item1-opacity);        
+     }
+ }
+ 
+ /* detail  */
+ .carousel .list .item .detail{
+     opacity: 0;
+     pointer-events: none;
+ }
+ /* showDetail */
+ .carousel.showDetail .list .item:nth-child(3),
+ .carousel.showDetail .list .item:nth-child(4){
+     left: 100%;
+     opacity: 0;
+     pointer-events: none;
+ }
+ .carousel.showDetail .list .item:nth-child(2){
+     width: 100%;
+ }
+ .carousel.showDetail .list .item:nth-child(2) .introduce{
+     opacity: 0;
+     pointer-events: none;
+ }
+ .carousel.showDetail .list .item:nth-child(2) img{
+     right: 50%;
+ }
+ .carousel.showDetail .list .item:nth-child(2) .detail{
+     opacity: 1;
+     width: 50%;
+     position: absolute;
+     right: 0;
+     top: 50%;
+     transform: translateY(-50%);
+     text-align: right;
+     pointer-events: auto;
+ }
+ .carousel.showDetail .list .item:nth-child(2) .detail .title{
+     font-size: 4em;
+ }
+ .carousel.showDetail .list .item:nth-child(2) .detail .specifications{
+     display: flex;
+     gap: 10px;
+     width: 100%;
+     border-top: 1px solid #5553;
+     margin-top: 20px;
+ }
+ .carousel.showDetail .list .item:nth-child(2) .detail .specifications div{
+     width: 90px;
+     text-align: center;
+     flex-shrink: 0;
+ }
+ .carousel.showDetail .list .item:nth-child(2) .detail .specifications div p:nth-child(1){
+     font-weight: bold;
+ }
+ .carousel.carousel.showDetail .list .item:nth-child(2) .checkout button{
+     font-family: Poppins;
+     background-color: transparent;
+     border: 1px solid #5555;
+     margin-left: 5px;
+     padding: 5px 10px;
+     letter-spacing: 2px;
+     font-weight: 500;
+ }
+ .carousel.carousel.showDetail .list .item:nth-child(2) .checkout button:nth-child(2){
+     background-color: #693EFF;
+     color: #eee;
+ }
+ .carousel.showDetail .list .item:nth-child(2) .detail  .title,
+ .carousel.showDetail .list .item:nth-child(2) .detail  .des,
+ .carousel.showDetail .list .item:nth-child(2) .detail .specifications,
+ .carousel.showDetail .list .item:nth-child(2) .detail .checkout{
+     opacity: 0;
+     animation: showContent 0.5s 1s ease-in-out 1 forwards;
+ }
+ .carousel.showDetail .list .item:nth-child(2) .detail  .des{
+     animation-delay: 1.2s;
+ }
+ .carousel.showDetail .list .item:nth-child(2) .detail .specifications{
+     animation-delay: 1.4s;
+ }
+ .carousel.showDetail .list .item:nth-child(2) .detail .checkout{
+     animation-delay: 1.6s;
+ }
+ .arrows{
+     position: absolute;
+     
+     width: 1140px;
+     max-width: 90%;
+     display: flex;
+     justify-content: space-between;
+     left: 50%;
+     transform: translateX(-50%);
+ }
+ #prev,
+ #next{
+     width: 40px;
+     height: 40px;
+     border-radius: 50%;
+     font-family: monospace;
+     border: 1px solid #5555;
+     font-size: large;
+     bottom: 20%;
+     left: 10%;
+ }
+ #next{
+     left: unset;
+     right: 10%;
+ }
+ #back{
+     position: absolute;
+     z-index: 100;
+     bottom: 0%;
+     left: 50%;
+     transform: translateX(-50%);
+     border: none;
+     border-bottom: 1px solid #555;
+     font-family: Poppins;
+     font-weight: bold;
+     letter-spacing: 3px;
+     background-color: transparent;
+     padding: 10px;
+     /* opacity: 0; */
+     transition: opacity 0.5s;
+ }
+ .carousel.showDetail #back{
+     opacity: 1;
+ }
+ .carousel.showDetail #prev,
+ .carousel.showDetail #next{
+     opacity: 0;
+     pointer-events: none;
+ }
+ .carousel::before{
+     width: 500px;
+     height: 300px;
+     content: '';
+     background-image: linear-gradient(70deg, #DC422A, blue);
+     position: absolute;
+     z-index: -1;
+     border-radius: 20% 30% 80% 10%;
+     filter: blur(150px);
+     top: 50%;
+     left: 50%;
+     transform: translate(-10%, -50%);
+     transition: 1s;
+ }
+ .carousel.showDetail::before{
+     transform: translate(-100%, -50%) rotate(90deg);
+     filter: blur(130px);
+ }
+ @media screen and (max-width: 991px){
+     /* ipad, tablets */
+     .carousel .list .item{
+         width: 90%;
+     }
+     .carousel.showDetail .list .item:nth-child(2) .detail .specifications{
+         overflow: auto;
+     }
+     .carousel.showDetail .list .item:nth-child(2) .detail .title{
+         font-size: 2em;
+     }
+ }
+ @media screen and (max-width: 767px){
+     /* mobile */
+     .carousel{
+         height: 600px;
+     }
+     .carousel .list .item{
+         width: 100%;
+         font-size: 10px;
+     }
+     
+     .carousel .list{
+         height: 100%;
+     }
+     .carousel .list .item:nth-child(2) .introduce{
+         width: 50%;
+     }
+     
+     .carousel .list .item img{
+         width: 40%;
+     }
+     .carousel.showDetail .list .item:nth-child(2) .detail{
+         backdrop-filter: blur(10px);
+         font-size: small;
+     }
+     .carousel .list .item:nth-child(2) .introduce .des,
+     .carousel.showDetail .list .item:nth-child(2) .detail .des{
+         height: 100px;
+         overflow: auto;
+     }
+     .carousel.showDetail .list .item:nth-child(2) .detail .checkout{
+         display: flex;
+         width: max-content;
+         float: right;
+     }
+ }/*here the nachinary css code ends ***********************************/
         html,body{
             overflow-x: hidden;
             max-width: 100%;
+        }
+        /*top navbar */
+        .top-header {
+            background-color: #002D62;
+            color: white;
+            padding: 10px 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+
+        .company-quote {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .quote-icon {
+            color: #ff6b6b;
+        }
+
+        .company-name {
+            font-weight: bold;
+            color: #ff6b6b;
+        }
+
+        .contact-info {
+            display: flex;
+            gap: 20px;
+            align-items: center;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .contact-item i {
+            color: #ff6b6b;
+        }
+
+        /* Mobile Responsive */
+        @media (max-width: 768px) {
+            .top-header {
+                flex-direction: column;
+                gap: 10px;
+                text-align: center;
+                padding: 15px;
+            }
+
+            .contact-info {
+                flex-direction: column;
+                gap: 10px;
+            }
+
+            .company-quote {
+                margin-bottom: 10px;
+            }
         }
         /* Sticky navbar when scrolling */
         .sticky-navbar {
@@ -50,1004 +541,507 @@
             opacity: 1;
             pointer-events: all;
         }
-
-        /*carousel section here-------------------------------------------------------*/
-        .premium-carousel {
-            position: relative;
+/*image carousels here*/
+        .gallery-container {
             width: 100%;
             height: 100vh;
+            display: flex;
             overflow: hidden;
-            background: #000;
-        }
-
-        .carousel-slide {
-            position: absolute;
-            width: 100%;
-            height: 100%;
-            clip-path: polygon(50% 50%, 50% 50%, 50% 50%, 50% 50%, 50% 50%);
-            transition: clip-path 1.5s ease-in-out;
-        }
-
-        .carousel-slide.active {
-            clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%, 0 0);
-        }
-
-        .carousel-slide.exit {
-            clip-path: polygon(100% 100%, 0 100%, 0 0, 100% 0, 100% 100%);
-        }
-
-        .slide-video {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-        }
-
-        .slide-content {
-            position: absolute;
-            bottom: 50px;
-            left: 50px;
-            color: #fff;
-            z-index: 2;
-            max-width: 600px;
-             
-            padding: 30px;
-            border-radius: 15px;
-            
-            transform: translateY(100px);
-            opacity: 0;
-            transition: all 1s ease-out;
-        }
-
-        .carousel-slide.active .slide-content {
-            transform: translateY(0);
-            opacity: 1;
-        }
-
-        .slide-heading {
-            font-family: 'Arial', sans-serif;
-            font-size: 0;
-            margin-bottom: 15px;
-            color: #fff;
-            text-transform: uppercase;
-            animation: textReveal 1s forwards;
-            animation-delay: 0.5s;
-        }
-
-        .carousel-slide.active .slide-heading {
-            font-size: 2.5rem;
-        }
-
-        .slide-text {
-            font-size: 1.1rem;
-            line-height: 1.6;
-            margin-bottom: 20px;
-            opacity: 0;
-            transform: translateX(-20px);
-            animation: slideInText 0.8s forwards;
-            animation-delay: 1s;
-        }
-
-        .transition-overlay {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            z-index: 3;
-            pointer-events: none;
-            opacity: 0;
-        }
-
-        .star-transition {
-            position: absolute;
-            width: 100%;
-            height: 100%;
-            background: radial-gradient(circle at center, #fff 0%, transparent 70%);
-            transform: scale(0);
-            opacity: 0;
-        }
-
-        .transition-active .star-transition {
-            animation: starBurst 1.5s ease-out forwards;
-        }
-
-        @keyframes starBurst {
-            0% {
-                transform: scale(0);
-                opacity: 0;
-            }
-            50% {
-                opacity: 0.8;
-            }
-            100% {
-                transform: scale(2);
-                opacity: 0;
-            }
-        }
-
-        @keyframes textReveal {
-            0% {
-                opacity: 0;
-                transform: translateY(20px);
-            }
-            100% {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        @keyframes slideInText {
-            0% {
-                opacity: 0;
-                transform: translateX(-20px);
-            }
-            100% {
-                opacity: 1;
-                transform: translateX(0);
-            }
-        }
-
-        @media (max-width: 768px) {
-            .slide-content {
-                left: 20px;
-                right: 20px;
-                bottom: 80px;
-                max-width: none;
-            }
-
-            .carousel-slide.active .slide-heading {
-                font-size: 1.8rem;
-            }
-
-            .slide-text {
-                font-size: 1rem;
-            }
-        }
-        /*new desing here landing page */
-        .bg-custom {
-            background-color: #FFF5EB;
-        }
-        .card-bg {
-            background-color: #E9B949;
-        }
-        .learn-btn {
-            background-color: #000;
-            color: white;
-            padding: 12px 24px;
-            border-radius: 24px;
-            display: inline-block;
-            transition: all 0.3s ease;
-        }
-        .learn-btn:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-        }
-        .content-card {
-            border-radius: 24px;
-            overflow: hidden;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-        }
-        .video-container {
             position: relative;
-            padding-bottom: 56.25%;
-            height: 0;
-            overflow: hidden;
-        }
-        .video-container video {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
         }
 
-        /*about section css here--------------------*/
-        /*about*/
-
-
-.body-aboutK {
-    font-family: Arial, sans-serif;
-    margin: 0;
-    padding: 20px;
-    background-color: #f0f0f0;
-}
-
-.container-about {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    max-width: 1200px;
-    margin: 0 auto;
-    background-color: white;
-    padding: 20px;
-    border-radius: 10px;
-}
-
-.image-container-A {
-    width: 100%;
-    max-width: 500px;
-    margin-bottom: 20px;
-}
-
-.image-container-A img {
-    width: 100%;
-    height: auto;
-    max-height: 350px;
-    object-fit: cover;
-    border-radius: 10px;
-    box-shadow: 0 0 10px;
-}
-
-.content {
-    width: 100%;
-}
-
-h1 {
-    color: #d14d72;
-    font-size: 2em;
-    margin-bottom: 30px;
-    text-align: center;
-}
-
-.services-grid {
-    display: grid;
-    grid-template-columns: 1fr;
-    gap: 30px;
-}
-
-.service-about{
-    display: flex;
-    align-items: flex-start;
-}
-
-.icon {
-    width: 40px;
-    height: 40px;
-    margin-right: 15px;
-    animation: float 3s ease-in-out infinite;
-}
-
-@keyframes float {
-    0% { transform: translateY(0px); }
-    50% { transform: translateY(-10px); }
-    100% { transform: translateY(0px); }
-}
-
-.service-content h2 {
-    color: #333;
-    margin: 0 0 5px 0;
-    font-size: 1.2em;
-}
-
-.service-content p {
-    margin: 0;
-    color: #666;
-    font-size: 0.9em;
-}
-
-.find-out-more {
-    color: #d14d72;
-    text-decoration: none;
-    font-weight: bold;
-    font-size: 0.9em;
-}
-
-.find-out-more:after {
-    content: ' ›';
-}
-
-@media (min-width: 768px) {
-    .container-about {
-        flex-direction: row;
-        align-items: flex-start;
-    }
-
-    .image-container-A {
-        flex: 1;
-        padding: 20px;
-        margin-bottom: 0;
-         
-    }
-
-    .content {
-        flex: 1;
-    }
-
-    .services-grid {
-        grid-template-columns: 1fr 1fr;
-    }
-
-    h1 {
-        font-size: 2.5em;
-        text-align: left;
-    }
-
-    .icon {
-        width: 50px;
-        height: 50px;
-    }
-
-    .service-content h2 {
-        font-size: 1.5em;
-    }
-
-    .service-content p, .find-out-more {
-        font-size: 1em;
-    }
-}
-
-/*Services expertise section csss***************************/
-.expertise-section {
-            padding: 80px 20px;
-            background: #fff;
-            opacity: 0;
-            transform: translateY(50px);
-            transition: all 1s ease-out;
-        }
-
-        .expertise-section.visible {
-            opacity: 1;
-            transform: translateY(0);
-        }
-
-        .section-title {
-            text-align: center;
-            font-size: 20px;
-            color: #333;
-            margin-bottom: 30px;
-        }
-
-        .section-description {
-            text-align: center;
-            max-width: 1200px;
-            margin: 0 auto 60px;
-            line-height: 1.6;
-            color: #666;
-            font-size: 18px;
-        }
-
-        .services-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 30px;
-            max-width: 1200px;
-            margin: 0 auto;
-        }
-
-        .service-card {
-            position: relative;
-            height: 300px;
-            border-radius: 15px;
-            overflow: hidden;
-            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-            cursor: pointer;
-        }
-
-        .service-card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 20px 40px rgba(0,0,0,0.2);
-        }
-
-        .service-image {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            transition: transform 0.3s ease;
-        }
-
-        .service-card:hover .service-image {
-            transform: scale(1.05);
-        }
-
-        .service-overlay {
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            right: 0;
-            padding: 20px;
-            background: linear-gradient(to top, rgba(0,0,0,0.8), transparent);
-            color: white;
-            transition: all 0.3s ease;
-        }
-
-        .service-card:hover .service-overlay {
-            background: rgba(0,0,0,0.7);
-            height: 100%;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-        }
-
-        .service-title {
-            font-size: 24px;
-            font-weight: 600;
-            margin-bottom: 10px;
-        }
-
-        .service-description {
-            font-size: 16px;
-            line-height: 1.5;
-            opacity: 0;
-            transform: translateY(20px);
-            transition: all 0.3s ease;
-            display: none;
-        }
-
-        .service-card:hover .service-description {
-            opacity: 1;
-            transform: translateY(0);
-            display: block;
-        }
-
-        .service-link {
-            display: inline-flex;
-            align-items: center;
-            color: #fff;
-            text-decoration: none;
-            margin-top: 15px;
-            font-weight: 500;
-            opacity: 0;
-            transform: translateY(20px);
-            transition: all 0.3s ease 0.1s;
-        }
-
-        .service-card:hover .service-link {
-            opacity: 1;
-            transform: translateY(0);
-        }
-
-        .arrow-icon {
-            margin-left: 8px;
-            transition: transform 0.3s ease;
-        }
-
-        .service-link:hover .arrow-icon {
-            transform: translateX(5px);
-        }
-
-        @media (max-width: 768px) {
-            .section-title {
-                font-size: 32px;
-            }
-
-            .section-description {
-                font-size: 16px;
-                padding: 0 20px;
-            }
-
-            .services-grid {
-                grid-template-columns: 1fr;
-                padding: 0 20px;
-            }
-
-            .service-card {
-                height: 250px;
-            }
-        }
-        /*new disign of auto type*/
-        .bodyofnewdesign {
-            line-height: 1.6;
-            background-color: #f5f5f5;
-        }
-
-        .section-auto-write {
-            display: flex;
-            align-items: center;
-            padding: 4rem 2rem;
-            min-height: 80vh;
-            background: white;
-            transition: transform 0.3s ease;
-        }
-
-        .section-auto-write:hover {
-            transform: translateY(-5px);
-        }
-
-        .container-auto-write {
-            max-width: 1200px;
-            margin: 0 auto;
-            display: flex;
-            align-items: center;
-            gap: 4rem;
-        }
-
-        .section-auto-write:nth-child(odd) .container {
-            flex-direction: row-reverse;
-        }
-
-        .image-container {
+        .gallery-section {
             flex: 1;
             position: relative;
             overflow: hidden;
-            border-radius: 12px;
+            border: 2px solid white;
+            transform: skewX(-10deg);
+            margin-left: -2px;
+        }
+
+        .image-wrapper {
+            position: absolute;
+            width: 120%;
+            height: 100%;
+            opacity: 0;
+            transition: opacity 0.5s ease-in-out;
+            transform: skewX(10deg);
+            left: -10%;
+        }
+
+        .image-wrapper.active {
+            opacity: 1;
+        }
+
+        .image-wrapper img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .section-overlay {
+            position: absolute;
+            top: 0;
+            left: -10%;
+            width: 120%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.3);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: white;
+            font-family: Arial, sans-serif;
+            text-align: center;
+            padding: 20px;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+            transform: skewX(10deg);
+        }
+
+        .gallery-section:hover .section-overlay {
+            opacity: 1;
+        }
+
+       /* Add this media query to adjust for mobile screens */
+@media (max-width: 768px) {
+    .gallery-container {
+        flex-direction: column; /* Stack sections vertically on mobile */
+        height: auto;
+        overflow: visible; /* Ensure overflow is handled properly */
+    }
+
+    .gallery-section {
+        height: 100vh;
+        transform: none; /* Remove skew on mobile */
+        margin-left: 0;
+        width: 100%; /* Ensure sections take full width */
+    }
+
+    .image-wrapper {
+        width: 100%; /* Ensure images don't overflow the section */
+        transform: none; /* Remove skew effect for mobile */
+        left: 0;
+    }
+
+    .section-overlay {
+        width: 100%; /* Ensure overlay fits full section width */
+        left: 0;
+        opacity: 1;
+        background: rgba(0, 0, 0, 0.4);
+        transform: none; /* Remove skew */
+    }
+}
+
+/*css of partners*/
+.partners-section {
+            min-height: 100vh;
+            display: flex;
+            padding: 40px;
+            background: #f5f5f5;
+            opacity: 0;
+            transform: translateY(50px);
+            transition: all 1s ease;
+        }
+
+        .partners-section.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .left-container {
+            flex: 1;
+            padding: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .image-container-real {
+            position: relative;
+            width: 500px;
+            height: 600px;
+            overflow: hidden;
+            border-radius: 10px;
             box-shadow: 0 20px 40px rgba(0,0,0,0.1);
         }
 
-        .image-container img {
+        .image-container-real img {
             width: 100%;
             height: auto;
             transition: transform 0.5s ease;
         }
 
-        .image-container:hover img {
+        .image-container-real:hover img {
             transform: scale(1.05);
         }
 
-        .content {
+        .right-container {
             flex: 1;
-            padding: 2rem;
+            padding: 20px;
         }
 
-        .typewriter-text {
+        .partners-title {
             font-size: 2.5rem;
-            margin-bottom: 1.5rem;
-            color: #333;
-            width: 0;
-            white-space: nowrap;
+            margin-bottom: 40px;
+            text-align: center;
+            font-family: Arial, sans-serif;
+        }
+
+        .partners-grid {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
             overflow: hidden;
-            border-right: 3px solid #333;
-            animation: typing 4s steps(40) infinite alternate,
-                       blink 1s step-end infinite;
         }
 
-        /* First heading text */
-        .typewriter-1::before {
-            content: "Megha Super Structures";
+        .partners-row {
+            display: flex;
+            gap: 20px;
+            animation: slideRow 20s linear infinite;
         }
 
-        /* Second heading text */
-        .typewriter-2::before {
-            content: "Flyover Infrastructure";
+        .partners-row.reverse {
+            animation: slideRowReverse 20s linear infinite;
         }
 
-        p {
-            font-size: 1.1rem;
-            color: #666;
-            margin-bottom: 1.5rem;
+        .partner-box {
+            min-width: 200px;
+            height: 100px;
+            background: white;
+            border-radius: 8px;
+            padding: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            transition: transform 0.3s ease;
+        }
+
+        .partner-box:hover {
+            transform: translateY(-5px);
+        }
+
+        .partner-box img {
+            max-width: 80%;
+            max-height: 60%;
+            object-fit: contain;
+            filter: grayscale(100%);
+            transition: filter 0.3s ease;
+        }
+
+        .partner-box:hover img {
+            filter: grayscale(0%);
+        }
+
+        @keyframes slideRow {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(-100%); }
+        }
+
+        @keyframes slideRowReverse {
+            0% { transform: translateX(-100%); }
+            100% { transform: translateX(0); }
+        }
+
+        @media (max-width: 768px) {
+            .partners-section {
+                flex-direction: column;
+                padding: 20px;
+            }
+
+            .partners-title {
+                font-size: 2rem;
+                margin: 20px 0;
+            }
+
+            .partner-box {
+                min-width: 150px;
+                height: 80px;
+            }
+        }
+
+        /*projecst section here  text*/
+         /*projects section*/
+         .container-p {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        .title {
+            text-align: center;
+            color: #000066;
+            font-size: 2.5rem;
+            margin-bottom: 30px;
+        }
+
+        .filters {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin-bottom: 40px;
+        }
+
+        .filter-btn {
+            padding: 10px 20px;
+            border: 2px solid #000066;
+            background: transparent;
+            color: #000066;
+            cursor: pointer;
+            font-weight: bold;
+            border-radius: 4px;
+            transition: all 0.3s ease;
+        }
+
+        .filter-btn.active {
+            background: #000066;
+            color: white;
+        }
+
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+            margin-bottom: 40px;
+        }
+
+        .project-card {
+            position: relative;
+            height: 300px;
+            overflow: hidden;
+            border-radius: 8px;
+            cursor: pointer;
+        }
+
+        .project-card img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.3s ease;
+        }
+
+        .project-info {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            padding: 20px;
+            background: linear-gradient(transparent, rgba(0,0,0,0.8));
+            color: white;
+        }
+
+        .project-title {
+            font-size: 1.2rem;
+            margin-bottom: 5px;
+        }
+
+        .project-location {
+            font-size: 0.9rem;
+            opacity: 0.9;
+        }
+
+        .hover-content {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0,0,51,0.8);
+            color: white;
+            padding: 30px;
             opacity: 0;
-            animation: fadeInUp 1s ease 0.3s forwards;
+            transition: opacity 0.3s ease;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
         }
 
-        .cta-button {
-            display: inline-block;
-            padding: 1rem 2rem;
-            background: #4070f4;
+        .project-card:hover .hover-content {
+            opacity: 1;
+        }
+
+        .project-card:hover img {
+            transform: scale(1.05);
+        }
+
+        .view-more {
+            display: block;
+            width: fit-content;
+            margin: 0 auto;
+            padding: 15px 30px;
+            background: #000066;
             color: white;
             text-decoration: none;
-            border-radius: 8px;
-            transition: transform 0.3s ease, background 0.3s ease;
-            opacity: 0;
-            animation: fadeInUp 1s ease 0.6s forwards;
+            border-radius: 4px;
+            font-weight: bold;
+            transition: background 0.3s ease;
         }
 
-        .cta-button:hover {
-            transform: translateY(-3px);
-            background: #2d5ce4;
+        .view-more:hover {
+            background: #000033;
         }
 
-        @keyframes typing {
-            0% {
-                width: 0;
+        @media (max-width: 1024px) {
+            .projects-grid {
+                grid-template-columns: repeat(2, 1fr);
             }
-            50%, 100% {
+        }
+
+        @media (max-width: 768px) {
+            .filters {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .filter-btn {
                 width: 100%;
+                max-width: 300px;
             }
         }
 
-        @keyframes blink {
-            50% {
-                border-color: transparent;
+        @media (max-width: 600px) {
+            .projects-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .title {
+                font-size: 2rem;
             }
         }
+        /*contact section here*/
+        .contact-container {
+            max-width: 1200px;
+            margin: 40px auto;
+            padding: 20px;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+            opacity: 0;
+            transform: translateY(50px);
+            animation: slideUp 0.8s ease forwards;
+        }
 
-        @keyframes fadeInUp {
-            from {
-                opacity: 0;
-                transform: translateY(20px);
-            }
+        @keyframes slideUp {
             to {
                 opacity: 1;
                 transform: translateY(0);
             }
         }
 
-        @media (max-width: 768px) {
-            .container-auto-write {
-                flex-direction: column !important;
-                gap: 2rem;
-            }
-
-            .section-auto-write {
-                padding: 2rem 1rem;
-            }
-
-            .typewriter-text {
-                font-size: 2rem;
-            }
-
-            .content {
-                padding: 1rem;
-            }
-        }
-        /*why choose section css here */
-        .why-choose-section {
-            padding: 80px 20px;
-            opacity: 0;
-            transform: translateY(50px);
-            transition: all 0.8s ease-out;
-        }
-
-        .why-choose-section.visible {
-            opacity: 1;
-            transform: translateY(0);
-        }
-
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-        }
-
-        .section-title {
-            text-align: center;
-            margin-bottom: 50px;
-        }
-
-        .section-title h2 {
-            font-size: 36px;
-            color: #333;
-            margin-bottom: 15px;
-        }
-
-        .content-wrapper {
-            display: flex;
-            gap: 40px;
-            flex-wrap: wrap;
-        }
-
-        .boxes-container {
-            flex: 1;
-            min-width: 300px;
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 20px;
-        }
-
-        .box {
-            background: #fff;
-            padding: 25px;
-            border-radius: 10px;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-            transition: transform 0.3s ease;
-            opacity: 0;
-            transform: translateY(20px);
-        }
-
-        .box.visible {
-            opacity: 1;
-            transform: translateY(0);
-        }
-
-        .box:hover {
-            transform: translateY(-5px);
-        }
-
-        .box i {
-            font-size: 32px;
-            color: #2c5282;
-            margin-bottom: 15px;
-        }
-
-        .box h3 {
-            font-size: 18px;
-            margin-bottom: 10px;
-            color: #2d3748;
-        }
-
-        .box p {
-            font-size: 14px;
-            color: #718096;
-            line-height: 1.6;
-        }
-
-        .video-container {
-            flex: 1;
-            min-width: 300px;
-            position: relative;
-            padding-bottom: 56.25%;
-            height: 0;
-            border-radius: 15px;
-            overflow: hidden;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.15);
-        }
-
-        .video-container img {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-        }
-
-        @media (max-width: 768px) {
-            .boxes-container {
-                grid-template-columns: 1fr;
-            }
-            
-            .content-wrapper {
-                flex-direction: column;
-            }
-
-            .video-container {
-                margin-top: 30px;
-            }
-        }
-        /*projects section here css--------------------------------*/
-        .slider-section {
-            min-height: 100vh;
-            padding: 80px 0;
-            background: linear-gradient(135deg, white, #FFF5EB);
-            opacity: 0;
-            transform: translateY(50px);
-            transition: all 1s ease-out;
-        }
-
-        .slider-section.visible {
-            opacity: 1;
-            transform: translateY(0);
-        }
-
-        .section-title {
-            text-align: center;
-            font-size: 48px;
-            margin-bottom: 60px;
-            color: black;
-            text-transform: uppercase;
-            letter-spacing: 2px;
-        }
-
-        .section-subtitle {
-            text-align: center;
-            font-size: 20px;
-            margin-bottom: 40px;
-            color: #e0e0e0;
-        }
-
-        .slider-container {
-            width: 100%;
-            overflow: hidden;
+        .left-section {
             padding: 20px;
         }
 
-        .slider-track {
-            display: flex;
-            gap: 20px;
-            transition: transform 0.5s ease;
+        .right-section {
+            padding: 20px;
         }
 
-        .product-card {
-            min-width: 320px;
-            height: 450px;
-            border-radius: 20px;
-            position: relative;
-            overflow: hidden;
-            cursor: pointer;
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-            background: #000;
+        h1 {
+            font-size: 48px;
+            font-weight: 700;
+            margin-bottom: 16px;
+            color: #000;
         }
 
-        .product-card:hover {
-            transform: translateY(-10px) scale(1.02);
-            box-shadow: 0 20px 40px rgba(0,0,0,0.3);
+        .subtitle {
+            color: #666;
+            font-size: 18px;
+            margin-bottom: 40px;
         }
 
-        .card-bg {
-            position: absolute;
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            transition: transform 0.3s ease;
-            opacity: 0.7;
-        }
-
-        .product-card:hover .card-bg {
-            transform: scale(1.05);
-            opacity: 0.4;
-        }
-
-        .card-content {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
+        .features {
+            background: #f7f7f7;
             padding: 30px;
-            background: linear-gradient(to top, rgba(0,0,0,0.9), transparent);
-            color: white;
-            opacity: 0;
-            transition: opacity 0.3s ease;
+            border-radius: 8px;
+        }
+
+        .feature-item {
             display: flex;
-            flex-direction: column;
-            justify-content: flex-end;
-            align-items: flex-start;
+            gap: 12px;
+            margin-bottom: 24px;
         }
 
-        .product-card:hover .card-content {
-            opacity: 1;
+        .feature-item:last-child {
+            margin-bottom: 0;
         }
 
-        .card-title {
-            font-size: 24px;
-            font-weight: 600;
-            margin-bottom: 15px;
-            transform: translateY(20px);
-            transition: transform 0.3s ease;
-            color: #fff;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-        }
-
-        .card-description {
-            font-size: 16px;
-            line-height: 1.6;
-            margin-bottom: 20px;
-            transform: translateY(20px);
-            transition: transform 0.3s ease 0.1s;
-            color: #e0e0e0;
-        }
-
-        .stats {
-            display: flex;
-            gap: 20px;
-            margin-bottom: 20px;
-            transform: translateY(20px);
-            transition: transform 0.3s ease 0.15s;
-        }
-
-        .stat-item {
-            text-align: center;
-        }
-
-        .stat-value {
-            font-size: 24px;
+        .checkmark {
+            color: #000;
             font-weight: bold;
-            color: #4CAF50;
         }
 
-        .stat-label {
-            font-size: 12px;
-            color: #bbb;
+        .form-group {
+            margin-bottom: 24px;
         }
 
-        .learn-more {
-            color: #4CAF50;
-            text-decoration: none;
+        label {
+            display: block;
+            margin-bottom: 8px;
+            color: #333;
+            font-size: 14px;
+        }
+
+        input, select, textarea {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
             font-size: 16px;
-            transform: translateY(20px);
-            transition: transform 0.3s ease 0.2s;
-            display: flex;
-            align-items: center;
-            gap: 5px;
         }
 
-        .learn-more:hover {
-            color: #69F0AE;
+        textarea {
+            min-height: 100px;
+            resize: vertical;
         }
 
-        .product-card:hover .card-title,
-        .product-card:hover .card-description,
-        .product-card:hover .stats,
-        .product-card:hover .learn-more {
-            transform: translateY(0);
+        .required {
+            color: #666;
+            font-size: 14px;
+            margin-top: 20px;
         }
 
-        @media (max-width: 768px) {
-            .section-title {
-                font-size: 32px;
-                padding: 0 20px;
-            }
-
-            .section-subtitle {
-                font-size: 16px;
-                padding: 0 20px;
-            }
-
-            .product-card {
-                min-width: 280px;
-                height: 400px;
-            }
-
-            .card-title {
-                font-size: 20px;
-            }
-
-            .card-description {
-                font-size: 14px;
-            }
-        }
-        /*finance section here*******************************/
-        .finance-section {
-            background-color: #F5F5F7;
-            opacity: 0;
-            transform: translateY(50px);
-            transition: all 0.8s ease-out;
-        }
-
-        .finance-section.visible {
-            opacity: 1;
-            transform: translateY(0);
-        }
-
-        .finance-card {
-            border-radius: 24px;
-            transition: all 0.3s ease;
-            overflow: hidden;
-            cursor: pointer;
-        }
-
-        .finance-card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
-        }
-
-        .finance-card:hover .card-title {
-            transform: translateY(-5px);
-        }
-
-        .card-title {
-            transition: transform 0.3s ease;
-        }
-
-        .wallet-card {
-            background-color: #F5F5F5;
-        }
-
-        .megha-card {
-            background-color: #FFFFFF;
-        }
-
-        .cash-card {
-            background-color: #000000;
+        .submit-btn {
+            background: #e16259;
             color: white;
+            padding: 12px 24px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 16px;
+            transition: background 0.3s;
         }
 
-        .learn-more {
-            position: relative;
-            color: inherit;
-            text-decoration: none;
-            transition: all 0.3s ease;
+        .submit-btn:hover {
+            background: #d45149;
         }
 
-        .learn-more:after {
-            content: '>';
-            margin-left: 5px;
-            transition: transform 0.3s ease;
-            display: inline-block;
+        .help-text {
+            margin-top: 30px;
+            color: #666;
         }
 
-        .finance-card:hover .learn-more:after {
-            transform: translateX(5px);
-        }
-
-        .card-image {
-            transition: transform 0.3s ease;
-        }
-
-        .finance-card:hover .card-image {
-            transform: scale(1.05);
+        .help-text a {
+            color: #666;
+            text-decoration: underline;
         }
 
         @media (max-width: 768px) {
-            .finance-grid {
+            .contact-container {
                 grid-template-columns: 1fr;
                 gap: 20px;
             }
+
+            h1 {
+                font-size: 36px;
+            }
+
+            .features {
+                margin-bottom: 30px;
+            }
         }
 
-        /*footer**************************************/
-        .footer-link {
+          /*footer**************************************/
+          .footer-link {
             color: #6B7280;
             transition: color 0.2s ease;
             display: block;
@@ -1101,9 +1095,28 @@ h1 {
                 grid-column: span 1;
             }
         }
+
     </style>
 </head>
-<body class="bg-white">
+<body>
+    <div class="top-header">
+        <div class="company-quote">
+            <i class="fas fa-quote-left quote-icon"></i>
+            <span>Labour Choice - </span>
+            <span class="company-name">Megha Super Structures</span>
+        </div>
+        <div class="contact-info">
+            <div class="contact-item">
+                <i class="fas fa-phone"></i>
+                <span>+91 9449419000</span>
+            </div>
+            <div class="contact-item">
+                <i class="fas fa-envelope"></i>
+                <span>meghasuperstructure@yahoo.com</span>
+            </div>
+        </div>
+    </div>
+    <!--navbar starts here-->
     <nav id="navbar" class="sticky-navbar bg-white shadow-md">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex justify-between items-center h-20">
@@ -1123,7 +1136,7 @@ h1 {
                     <button class="text-gray-700 hover:text-black">Core Business</button>
                      <a href="Projects.html"><button class="text-gray-700 hover:text-black">Projects</button></a>
                     <button class="text-gray-700 hover:text-black">Strength</button>
-                        <a href="NewWebDesign.html"><button class="text-gray-700 hover:text-black">Careers</button></a>
+                        <button class="text-gray-700 hover:text-black">Careers</button>
                          <a href="Contact Page.html"><button class="text-gray-700 hover:text-black">Contact</button></a>
                 </div>
 
@@ -1182,456 +1195,700 @@ h1 {
         </div>
     </div>
 
-    <!--carousel here-->
-    
-     
-
-
-    <!---carousel page here-->
-    <section>
-        <div class="premium-carousel">
-            <div class="carousel-slide active">
-                <video class="slide-video" autoplay muted loop>
-                    <source src="/images/video 1.mp4" type="video/mp4">
-                </video>
-                <div class="slide-content">
-                    <h2 class="slide-heading">Urban Flyover</h2>
-                    <p class="slide-text">Experience the majestic city skyline from above, where modern architecture meets the clouds.</p>
-                </div>
+    <!--image carousels here -->
+    <div class="gallery-container" style="background-color: #002D62;">
+        <!-- Section 1 -->
+        <div class="gallery-section">
+            <div class="image-wrapper active">
+                <img src="/images/image17-Photoroom.png" alt="Section 1 Image 1">
             </div>
-            <div class="carousel-slide">
-                <video class="slide-video" autoplay muted loop>
-                    <source src="/images/video2.mp4" type="video/mp4">
-                </video>
-                <div class="slide-content">
-                    <h2 class="slide-heading">Bridge Connect</h2>
-                    <p class="slide-text">Marvel at the engineering brilliance of our elevated highways connecting communities.</p>
-                </div>
+            <div class="image-wrapper">
+                <img src="/images/image fo carousel 4.avif" alt="Section 1 Image 2">
             </div>
-            <div class="carousel-slide">
-                <video class="slide-video" autoplay muted loop>
-                    <source src="/images/video 1.mp4" type="video/mp4">
-                </video>
-                <div class="slide-content">
-                    <h2 class="slide-heading">Night Transit</h2>
-                    <p class="slide-text">Witness the city pulse through illuminated expressways as night falls over the metropolis.</p>
-                </div>
+            <div class="image-wrapper">
+                <img src="/images/image15.JPG" alt="Section 1 Image 3">
             </div>
-            <div class="transition-overlay">
-                <div class="star-transition"></div>
+            <!-- Middle text -->
+            <div class="section-middle-text">
+                <h2>Flyover Construction</h2>
+                <p>Transforming Infrastructure</p>
+            </div>
+            <!-- Bottom left text -->
+            <div class="section-bottom-left">
+                <h3>Section 1: Flyover Progress</h3>
+                <p>Building a better tomorrow, one step at a time.</p>
             </div>
         </div>
-    
-    
-    </section>
 
-    <!-- Hero Section  here-->
-     
+        <!-- Section 2 -->
+        <div class="gallery-section">
+            <div class="image-wrapper active">
+                <img src="/images/image16.JPG" alt="Section 2 Image 1">
+            </div>
+            <div class="image-wrapper">
+                <img src="/images/image8.JPG" alt="Section 2 Image 2">
+            </div>
+            <div class="image-wrapper">
+                <img src="/images/image6.JPG" alt="Section 2 Image 3">
+            </div>
+            <!-- Middle text -->
+            <div class="section-middle-text">
+                <h2>Flyover Construction</h2>
+                <p>Transforming Infrastructure</p>
+            </div>
+            <!-- Bottom left text -->
+            <div class="section-bottom-left">
+                <h3>Section 2: Flyover Progress</h3>
+                <p>Improving connectivity, improving life.</p>
+            </div>
+        </div>
 
-    <!---about section here -------------------->
-    <div class="body-aboutk">
-        <div class="container-about">
-            <!-- <div class="image-container-A">
-                <br>
-                 
-                <img src="/images/Screenshot (391).png" alt="Laptop showing performance graph" style="width: 500px;height: 500px;">
-            </div> -->
-            <div class="content">
-                <br>
-                 
-                 
-                <h1>What we can do for you?</h1>
-                <div class="services-grid">
-                    <div class="service-about">
-                        <img src="/images/Screenshot (391).png" alt="Performance icon" class="icon" style="border-radius: 50%;">
-                        <div class="service-content">
-                            <h2>Commitment to Quality</h2>
-                            <p>We pride in using the best materials and the latest technology to ensure flyover is built to last, meet all local and international standards.</p>
-                             
-                        </div>
-                    </div>
-                    <div class="service-about">
-                        <img src="/images/Screenshot (391).png" alt="Maintenance icon" class="icon" style="border-radius: 50%;">
-                        <div class="service-content">
-                            <h2>Experienced & Skilled Team</h2>
-                            <p>Our team is composed of highly skilled engineers, architects, and construction professionals with years of experience.</p>
-                            
-                        </div>
-                    </div>
-                    <div class="service-about">
-                        <img src="/images/Screenshot (391).png" alt="Custom Software Development icon" class="icon" style="border-radius: 50%;">
-                        <div class="service-content">
-                            <h2>Sustainability & Environmental Responsibility</h2>
-                            <p>Tailored solutions to meet your unique business needs and goals from our custom software development.</p>
-                             
-                        </div>
-                    </div>
-                    <div class="service-about">
-                        <img src="/images/Screenshot (391).png" alt="Security icon" class="icon" style="border-radius: 50%;">
-                        <div class="service-content">
-                            <h2>Safety Standards & Compliance</h2>
-                            <p>Mitigate cybersecurity risks and vulnerabilities from hacking and provide security for your website.</p>
-                            
-                        </div>
-                    </div>
-                    <div class="service-about">
-                        <img src="/images/Screenshot (391).png" alt="Security icon" class="icon" style="border-radius: 50%;">
-                        <div class="service-content">
-                            <h2>Client-Centric Approach</h2>
-                            <p>Mitigate cybersecurity risks and vulnerabilities from hacking and provide security for your website.</p>
-                            
-                        </div>
-                    </div>
-                    <div class="service-about">
-                        <img src="/images/Screenshot (391).png" alt="Security icon" class="icon" style="border-radius: 50%;">
-                        <div class="service-content">
-                            <h2>Mission & Vision</h2>
-                            <p>Mitigate cybersecurity risks and vulnerabilities from hacking and provide security for your website.</p>
-                            
-                        </div>
-                    </div>
-                </div>
+        <!-- Section 3 -->
+        <div class="gallery-section">
+            <div class="image-wrapper active">
+                <img src="/images/image4.JPG" alt="Section 3 Image 1">
+            </div>
+            <div class="image-wrapper">
+                <img src="/images/image of flyover.jpeg" alt="Section 3 Image 2">
+            </div>
+            <div class="image-wrapper">
+                <img src="/images/image19.JPG" alt="Section 3 Image 3">
+            </div>
+            <!-- Middle text -->
+            <div class="section-middle-text">
+                <h2>Flyover Construction</h2>
+                <p>Transforming Infrastructure</p>
+            </div>
+            <!-- Bottom left text -->
+            <div class="section-bottom-left">
+                <h3>Section 3: Flyover Progress</h3>
+                <p>Creating seamless travel experiences.</p>
             </div>
         </div>
     </div>
-    <!--landing page video section  here -->
-    <section>
-        <div class="bg-custom min-h-screen py-16">
-            <div class="container mx-auto px-4 flex flex-col lg:flex-row items-center justify-between gap-12">
-                <!-- Left Content -->
-                <div class="lg:w-1/2">
-                    <h2 class="text-lg font-medium mb-2">Megha super structures</h2>
-                    <h1 class="text-4xl lg:text-5xl font-bold mb-6">Work better together</h1>
-                    <p class="text-gray-600 mb-8 leading-relaxed">
-                        Megha Super Structures is a leading name in infrastructure development, specializing in the construction of flyovers and other large-scale projects. With a commitment to excellence and innovation, they design and build solutions that enhance urban connectivity, reduce traffic congestion, and improve the overall flow of city life. Their flyovers are engineered to be both functional and durable, providing long-term solutions to modern infrastructure challenges. Megha Super Structures 
-                        continues to shape the future of urban mobility by creating efficient, smart, and sustainable transportation networks
-                    </p>
-                    <button class="px-8 py-4 bg-black text-white rounded-full hover:bg-gray-800 transition-colors inline-flex items-center">
-                        Know more about Megha Super Structures
-                        <svg class="ml-2 w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
-                    </button>
-                </div>
-                
-                <!-- Right Content Card -->
-                <div class="lg:w-1/2">
-                    
-                         
-                        <div class="video-container rounded-lg overflow-hidden">
-                            <video controls>
-                                <source src="/images/Screen Recording 2025-02-11 214851.mp4" type="video/mp4">
-                                Your browser does not support the video tag.
-                            </video>
-                        </div>
-                        <h3 class="text-2xl font-bold mt-4 text-white color-maroon">Flyovers are more than bridges; they are pathways to faster, smoother, and smarter cities</h3>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
 
-    <!---------------------------services section here -->
-    <section class="expertise-section">
-        <h1 class="section-title">Meghas Expertise and Services</h1>
-        <p class="section-description">
-            The Megha Super Structures started operations in the India in the 1960s and today employs in excess of 14,000 people. ANCG is managed with a wealth of international expertise and specialises in the following areas of construction: civil engineering, building, flyovers, ready-mix concrete and asphalt, and the supply of specialist plant and equipment.
-        </p>
-        <div class="services-grid">
-            <div class="service-card">
-                <img src="/images/Screenshot (391).png" alt="Specialist Services" class="service-image">
-                <div class="service-overlay">
-                    <h3 class="service-title">Specialist Services</h3>
-                    <p class="service-description">
-                        Comprehensive specialist construction services including civil engineering, infrastructure development, and advanced construction solutions tailored to meet complex project requirements.
-                    </p>
-                    <a href="#" class="service-link">
-                        Learn More
-                        <span class="arrow-icon">→</span>
-                    </a>
-                </div>
-            </div>
-
-            <div class="service-card">
-                <img src="/images/Screenshot (391).png" alt="Ready Mix" class="service-image">
-                <div class="service-overlay">
-                    <h3 class="service-title">Ready Mix</h3>
-                    <p class="service-description">
-                        State-of-the-art ready-mix concrete production facilities delivering high-quality concrete solutions for construction projects of all scales.
-                    </p>
-                    <a href="#" class="service-link">
-                        Learn More
-                        <span class="arrow-icon">→</span>
-                    </a>
-                </div>
-            </div>
-
-            <div class="service-card">
-                <img src="/images/Screenshot (391).png" alt="BIM Modelling" class="service-image">
-                <div class="service-overlay">
-                    <h3 class="service-title">Constructing Flyovers</h3>
-                    <p class="service-description">
-                        Advanced Building Information Modeling services providing comprehensive 3D modeling, coordination, and digital construction planning solutions.
-                    </p>
-                    <a href="#" class="service-link">
-                        Learn More
-                        <span class="arrow-icon">→</span>
-                    </a>
-                </div>
-            </div>
+<!--section of partners-->
+<section class="partners-section">
+    <div class="left-container">
+        <div class="image-container-real">
+            <img src="/images/image1.JPG" alt="Company Image">
         </div>
-    </section>
-    <!---new auto typeing section-->
-    <section class="bodyofnewdesign">
-        <section class="section-auto-write">
-            <div class="container-auto-write">
-                <div class="image-container">
-                    <img src="/images/Screenshot (391).png" alt="AI Writing Tool">
+    </div>
+
+    <div class="right-container">
+        <h2 class="partners-title" style="color: #333;font-family: 'Times New Roman', Times, serif;font-size: 3rem;">Our Clients</h2>
+        <div class="partners-grid">
+            <div class="partners-row">
+                <div class="partner-box">
+                    <img src="/images/jws logo.jpeg" alt="Kronos">
                 </div>
-                <div class="content">
-                    <h2 class="typewriter-text typewriter-1" style="color: maroon; font-family: 'Playfair Display', serif;"></h2>
-                    <p>Transforming skylines with innovative engineering solutions. Our cutting-edge construction technology brings your architectural visions to life with precision and excellence.</p>
-                    <a href="About Megha.html" class="cta-button">Learn More</a>
+                <div class="partner-box">
+                    <img src="/images/jws logo.jpeg" alt="Oracle">
                 </div>
-            </div>
-        </section>
-    
-        <section class="section-auto-write">
-            <div class="container-auto-write">
-                <div class="image-container">
-                    <img src="/images/Screenshot (391).png" alt="Flyover Construction">
+                <div class="partner-box">
+                    <img src="/images/jws logo.jpeg" alt="Kryon">
                 </div>
-                <div class="content">
-                    <h2 class="typewriter-text typewriter-2" style="color: maroon; font-family: 'Playfair Display', serif;"></h2>
-                    <p>State-of-the-art flyover construction utilizing advanced engineering techniques. Our projects focus on reducing traffic congestion while ensuring durability and safety for millions of daily commuters.</p>
-                    <a href="Projects.html" class="cta-button">View Projects</a>
+                <div class="partner-box">
+                    <img src="/images/jws logo.jpeg" alt="Teradata">
                 </div>
-            </div>
-        </section>
-        </section>
-<!---------------------------------------why choose section -------------------------------------------------------->
-<section class="why-choose-section">
-    <div class="container">
-        <div class="section-title">
-            <h2>Why Choose Megha Super Structures</h2>
-            <p>Building Dreams with Excellence and Innovation</p>
-        </div>
-        
-        <div class="content-wrapper">
-            <div class="boxes-container">
-                <div class="box">
-                    <i class="fas fa-medal"></i>
-                    <h3>Proven Track Record of Successful Projects</h3>
-                    <p>With a proven track record of delivering high-quality flyover projects on time and within budget.</p>
+                <!-- Duplicate for seamless loop -->
+                <div class="partner-box">
+                    <img src="/images/jws logo.jpeg" alt="Kronos">
                 </div>
-                <div class="box">
-                    <i class="fas fa-certificate"></i>
-                    <h3>Expert Team of Engineers & Professionals</h3>
-                    <p>Our team consists of highly skilled engineers, architects, and project managers who are experts in flyover construction.</p>
-                </div>
-                <div class="box">
-                    <i class="fas fa-clock"></i>
-                    <h3>Commitment to Quality & Safety</h3>
-                    <p>At Megha Super Structures, quality and safety are our top priorities. We adhere to the highest industry standards.</p>
-                </div>
-                <div class="box">
-                    <i class="fas fa-tools"></i>
-                    <h3>Innovative Solutions & Modern Technology</h3>
-                    <p>We leverage cutting-edge technology, from 3D modeling to AI-based project management tools.</p>
-                </div>
-                <div class="box">
-                    <i class="fas fa-users"></i>
-                    <h3> Timely Completion & Budget Management</h3>
-                    <p>Our strong project management skills and commitment to deadlines ensure that every flyover is completed on time.</p>
-                </div>
-                <div class="box">
-                    <i class="fas fa-leaf"></i>
-                    <h3>Sustainability and Environmental Responsibility</h3>
-                    <p>Megha Super Structures is committed to sustainability. We employ eco-friendly construction practices.</p>
+                <div class="partner-box">
+                    <img src="/images/jws logo.jpeg" alt="Oracle">
                 </div>
             </div>
             
-            <div class="video-container">
-                <img src="/images/Screenshot (391).png" alt="Construction Video Placeholder">
+            <div class="partners-row reverse">
+                <div class="partner-box">
+                    <img src="/images/jws logo.jpeg" alt="Partner 5">
+                </div>
+                <div class="partner-box">
+                    <img src="/images/jws logo.jpeg" alt="Partner 6">
+                </div>
+                <div class="partner-box">
+                    <img src="/images/jws logo.jpeg" alt="Partner 7">
+                </div>
+                <div class="partner-box">
+                    <img src="/images/jws logo.jpeg" alt="Partner 8">
+                </div>
+                <!-- Duplicate for seamless loop -->
+                <div class="partner-box">
+                    <img src="/images/jws logo.jpeg" alt="Partner 5">
+                </div>
+                <div class="partner-box">
+                    <img src="/images/jws logo.jpeg" alt="Partner 6">
+                </div>
+            </div>
+        </div>
+
+        <!-- New section for Our Clients and quote -->
+         
+    </div>
+</section>
+
+<!--work for better section here------------------->
+<section>
+    <div class="bg-custom min-h-screen py-16">
+        <div class="container mx-auto px-4 flex flex-col lg:flex-row items-center justify-between gap-12">
+            <!-- Left Content -->
+            <div class="lg:w-1/2">
+                <h2 class="text-lg font-medium mb-2">Megha super structures</h2>
+                <h1 class="text-4xl lg:text-5xl font-bold mb-6">We Lift Labour and Earth Feeling</h1>
+                <p class="text-gray-600 mb-8 leading-relaxed">
+                    Mega Lift Equipment is a leading supplier of heavy machinery designed for large-scale infrastructure projects, specializing in equipment used to build flyovers and other expansive structures. With a focus on power, precision, and reliability, they provide innovative lifting solutions that support the construction of complex transportation networks. Mega Lift Equipment's machines are engineered to handle the heavy lifting and demanding tasks required in flyover construction, ensuring efficiency and safety in every phase of the project. The company continues to shape the future of urban mobility
+                     by supplying the machinery that enables the development of durable and sustainable transportation systems.
+                </p>
+                <button class="px-8 py-4 bg-black text-white rounded-full hover:bg-gray-800 transition-colors inline-flex items-center">
+                    Know more about Megha Super Structures
+                    <svg class="ml-2 w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
+                </button>
+            </div>
+            
+            <!-- Right Content Card -->
+            <div class="lg:w-1/2">
+                
+                     
+                    <div class="video-container rounded-lg overflow-hidden">
+                        <video controls>
+                            <source src="/images/Screen Recording 2025-02-11 214851.mp4" type="video/mp4">
+                            Your browser does not support the video tag.
+                        </video>
+                    </div>
+                    <h3 class="text-2xl font-bold mt-4 text-#333 color-maroon">Lighting up the skies, one flyover section at a time – where power meets precision in every lift.</h3>
+                </div>
             </div>
         </div>
     </div>
 </section>
-    <!--projects here section ok ************************-->
-    <section class="slider-section">
-        
-        <h1 class="section-title">Mega Super Structure Projects</h1>
-        <p class="section-subtitle" style="font-size: 3rem;color: black;">Engineering Marvels Connecting Cities</p>
-        <div class="slider-container">
-            <div class="slider-track">
-                <div class="product-card">
-                    <img src="/images/Screenshot (391).png" alt="Elevated Expressway" class="card-bg">
-                    <div class="card-content">
-                        <h2 class="card-title">Elevated Expressway</h2>
-                        <div class="stats">
-                            <div class="stat-item">
-                                <div class="stat-value">15.5</div>
-                                <div class="stat-label">KM Length</div>
-                            </div>
-                            <div class="stat-item">
-                                <div class="stat-value">6</div>
-                                <div class="stat-label">Lanes</div>
-                            </div>
-                        </div>
-                        <p class="card-description">State-of-the-art elevated expressway featuring smart traffic management and emergency response systems.</p>
-                        <a href="#" class="learn-more">Explore Project ›</a>
-                    </div>
-                </div>
 
-                <div class="product-card">
-                    <img src="/images/Screenshot (391).png" alt="Double Decker Flyover" class="card-bg">
-                    <div class="card-content">
-                        <h2 class="card-title">Double Decker Flyover</h2>
-                        <div class="stats">
-                            <div class="stat-item">
-                                <div class="stat-value">12.3</div>
-                                <div class="stat-label">KM Length</div>
-                            </div>
-                            <div class="stat-item">
-                                <div class="stat-value">8</div>
-                                <div class="stat-label">Lanes Total</div>
-                            </div>
-                        </div>
-                        <p class="card-description">Revolutionary two-tier flyover system with dedicated lanes for public transport and private vehicles.</p>
-                        <a href="#" class="learn-more">Explore Project ›</a>
-                    </div>
-                </div>
+<!--projects section html here-->
+<!--projects section-->
+<div class="container-p">
+    <h1 class="title">OUR WORK</h1>
+    
+    <div class="filters">
+        <button class="filter-btn active" data-filter="completed">COMPLETED PROJECTS</button>
+        <button class="filter-btn" data-filter="ongoing">ONGOING PROJECTS</button>
+    </div>
 
-                <div class="product-card">
-                    <img src="/images/Screenshot (391).png" alt="Smart Corridor" class="card-bg">
-                    <div class="card-content">
-                        <h2 class="card-title">Smart Corridor</h2>
-                        <div class="stats">
-                            <div class="stat-item">
-                                <div class="stat-value">18.7</div>
-                                <div class="stat-label">KM Length</div>
-                            </div>
-                            <div class="stat-item">
-                                <div class="stat-value">4</div>
-                                <div class="stat-label">Lanes</div>
-                            </div>
-                        </div>
-                        <p class="card-description">IoT-enabled corridor with real-time traffic monitoring and automated incident management.</p>
-                        <a href="#" class="learn-more">Explore Project ›</a>
-                    </div>
-                </div>
-
-                <div class="product-card">
-                    <img src="/images/Screenshot (391).png" alt="Green Flyover" class="card-bg">
-                    <div class="card-content">
-                        <h2 class="card-title">Green Flyover</h2>
-                        <div class="stats">
-                            <div class="stat-item">
-                                <div class="stat-value">9.8</div>
-                                <div class="stat-label">KM Length</div>
-                            </div>
-                            <div class="stat-item">
-                                <div class="stat-value">100%</div>
-                                <div class="stat-label">Solar Powered</div>
-                            </div>
-                        </div>
-                        <p class="card-description">Eco-friendly infrastructure with vertical gardens and solar-powered lighting systems.</p>
-                        <a href="#" class="learn-more">Explore Project ›</a>
-                    </div>
-                </div>
-
-                <div class="product-card">
-                    <img src="/images/Screenshot (391).png" alt="Cable Bridge" class="card-bg">
-                    <div class="card-content">
-                        <h2 class="card-title">Cable Bridge</h2>
-                        <div class="stats">
-                            <div class="stat-item">
-                                <div class="stat-value">2.1</div>
-                                <div class="stat-label">KM Length</div>
-                            </div>
-                            <div class="stat-item">
-                                <div class="stat-value">120m</div>
-                                <div class="stat-label">Height</div>
-                            </div>
-                        </div>
-                        <p class="card-description">Iconic cable-stayed bridge with advanced structural monitoring systems.</p>
-                        <a href="#" class="learn-more">Explore Project ›</a>
-                    </div>
-                </div>
-
-                <div class="product-card">
-                    <img src="/images/Screenshot (391).png" alt="Transit Hub" class="card-bg">
-                    <div class="card-content">
-                        <h2 class="card-title">Transit Hub</h2>
-                        <div class="stats">
-                            <div class="stat-item">
-                                <div class="stat-value">50K</div>
-                                <div class="stat-label">Daily Users</div>
-                            </div>
-                            <div class="stat-item">
-                                <div class="stat-value">24/7</div>
-                                <div class="stat-label">Operations</div>
-                            </div>
-                        </div>
-                        <p class="card-description">Integrated transport hub connecting flyover network with metro and bus rapid transit.</p>
-                        <a href="#" class="learn-more">Explore Project ›</a>
-                    </div>
-                </div>
+    <div class="projects-grid" id="completedProjects">
+        <!-- Completed Projects -->
+        <div class="project-card">
+            <img src="/images/default imag e.png" alt="Zayed International Airport">
+            <div class="project-info">
+                <h3 class="project-title">Hyderabad Elevated Expressway – 2024</h3>
+                <p class="project-location">2020-21                </p>
+            </div>
+            <div class="hover-content">
+                <h3>Launching Girder Mobile gantry crane</h3>
+                <h4>Client : MPIL</h4>
+                <p>QTY : 1000 MT</p>
             </div>
         </div>
-    </section>
-    <!--finance section 3rd section------------------------->
-    <section class="finance-section py-20 px-4">
-        <div class="container mx-auto max-w-6xl">
-            <h1 class="text-5xl md:text-6xl font-bold text-center mb-16">More about Megha.</h1>
+        <!-- Add 5 more similar project cards -->
+
+        <div class="project-card">
+            <img src="/images/default imag e.png" alt="Zayed International Airport">
+            <div class="project-info">
+                <h3 class="project-title">Vijayawada Skyway Bridge – 2023
+                </h3>
+                <p class="project-location">2020-21</p>
+            </div>
+            <div class="hover-content">
+                <h3>Launching Girder Mobile gantry crane</h3>
+                <h4>Client : JSW STEEL Ltd</h4>
+                <p>QTY : 500 MT</p>
+            </div>
+        </div>
+
+        <div class="project-card">
+            <img src="/images/default imag e.png" alt="Zayed International Airport">
+            <div class="project-info">
+                <h3 class="project-title">Bengaluru Highway Overpass – 2025
+                </h3>
+                <p class="project-location">2020-21</p>
+            </div>
+            <div class="hover-content">
+                <h3>Launching Girder Mobile gantry crane</h3>
+                <h4> Client : JSW STEEL Ltd</h4>
+                <p>QTY : 150 MT</p>
+            </div>
+        </div>
+
+        <div class="project-card">
+            <img src="/images/default imag e.png" alt="Zayed International Airport">
+            <div class="project-info">
+                <h3 class="project-title">Secunderabad Sky Link – 2023
+                </h3>
+                <p class="project-location">2021-23</p>
+            </div>
+            <div class="hover-content">
+                <h3>Launching Girder Mobile gantry crane</h3>
+                <h4>Client : MPIL</h4>
+                <p>QTY : 500 MT</p>
+            </div>
+        </div>
+
+        <div class="project-card">
+            <img src="/images/default imag e.png" alt="Zayed International Airport">
+            <div class="project-info">
+                <h3 class="project-title">Warangal Elevated Expressway – 2024
+                </h3>
+                <p class="project-location">2020-21</p>
+            </div>
+            <div class="hover-content">
+                <h3>Launching Girder Mobile gantry crane</h3>
+                <h4>Client : VOLTAS</h4>
+                <p>QTY : 100 MT</p>
+            </div>
+        </div>
+
+        <div class="project-card">
+            <img src="/images/default imag e.png" alt="Zayed International Airport">
+            <div class="project-info">
+                <h3 class="project-title">Nellore Skyway Overpass – 2023
+                </h3>
+                <p class="project-location">2020-23</p>
+            </div>
+            <div class="hover-content">
+                <h3>Launching Girder Mobile gantry crane</h3>
+                <h4>Client : JSW STEEL Ltd</h4>
+                <p>QTY : Shutdown Jobs</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="projects-grid" id="ongoingProjects" style="display: none;">
+        <!-- Ongoing Projects -->
+        <div class="project-card">
+            <img src="/images/default imag e.png" alt="Ongoing Project">
+            <div class="project-info">
+                <h3 class="project-title">Visakhapatnam Coastal Flyover – 2025
+                </h3>
+                <p class="project-location">OnGoing</p>
+            </div>
+            <div class="hover-content">
+                <h3>Launching Girder Mobile gantry crane</h3>
+                <h4>Client : MPIL</h4>
+                <p>QTY : 4000 MT </p>
+            </div>
+        </div>
+        <!-- Add 5 more similar project cards -->
+
+        <div class="project-card">
+            <img src="/images/default imag e.png" alt="Ongoing Project">
+            <div class="project-info">
+                <h3 class="project-title">Khammam Urban Link Bridge – 2024</h3>
+                <p class="project-location">OnGoing</p>
+            </div>
+            <div class="hover-content">
+                <h3>Launching Girder Mobile gantry crane</h3>
+                <h4>Client : JSW STEEL Ltd</h4>
+                <p>QTY : Shutdown Jobs</p>
+            </div>
+        </div>
+        <div class="project-card">
+            <img src="/images/default imag e.png" alt="Ongoing Project">
+            <div class="project-info">
+                <h3 class="project-title">Kakinada Gateway Flyover – 2023
+                </h3>
+                <p class="project-location">OnGoing</p>
+            </div>
+            <div class="hover-content">
+                <h3>Launching Girder Mobile gantry crane
+                </h3>
+                <h4>Client : JSW STEEL Ltd</h4>
+                <p>QTY : 400 MT</p>
+            </div>
+        </div>
+        <div class="project-card">
+            <img src="/images/default imag e.png" alt="Ongoing Project">
+            <div class="project-info">
+                <h3 class="project-title">Tirupati Express Bridge – 2024
+                </h3>
+                <p class="project-location">OnGoing</p>
+            </div>
+            <div class="hover-content">
+                <h3>Launching Girder Mobile gantry crane
+</h3>
+<h4>Client : JVML</h4>
+                <p>QTY : 700 MT</p>
+            </div>
+        </div>
+
+    </div>
+
+    <a href="#" class="view-more">View More Completed Projects</a>
+    <br>
+    <br>
+    <br>
+    <center><h1>Megha Super Structures Machinary</h1></center>
+    <br>
+
+</div>
+
+<!--MEGHA SUPER STRUCTURES MACHINARY HERE SCETION HRML========================-->
+
+<section class="machinary" style="height: 600px;">
+    
+<div class="carousel">
+    <div class="list">
+        <div class="item">
             
-            <div class="finance-grid grid grid-cols-1 md:grid-cols-3 gap-6">
-                <!-- Wallet Card -->
-                <div class="finance-card wallet-card p-8 flex flex-col justify-between min-h-[400px]">
+            <img src="/images/default imag e.png" style="border-radius: 8px;box-shadow: 0 0 10px;">
+             
+            <div class="introduce">
+                
+                <div class="topic" style="font-size: 20px;">We Lift the section of Flyover with our latest Machines</div>
+                <div class="des">
+                     
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Officia, laborum cumque dignissimos quidem atque et eligendi aperiam voluptates beatae maxime.
+                </div>
+                <button class="seeMore">SEE MORE &#8599</button>
+            </div>
+            <div class="detail">
+                <div class="title">Airpod GHTK</div>
+                <div class="des">
+                     
+                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolor, reiciendis suscipit nobis nulla animi, modi explicabo quod corrupti impedit illo, accusantium in eaque nam quia adipisci aut distinctio porro eligendi. Reprehenderit nostrum consequuntur ea! Accusamus architecto dolores modi ducimus facilis quas voluptatibus! Tempora ratione accusantium magnam nulla tenetur autem beatae.
+                </div>
+                <div class="specifications">
                     <div>
-                        <h3 class="text-xl font-medium mb-2">Megha </h3>
-                        <div class="card-title">
-                            <h2 class="text-3xl font-bold mb-2" style="color: maroon;">Carry one thing.</h2>
-                            <h2 class="text-3xl font-bold mb-4" style="color: maroon;">Everything.</h2>
-                        </div>
-                        <a href="#" class="learn-more inline-block mt-2">Learn more</a>
+                        <p>Used Time</p>
+                        <p>6 hours</p>
                     </div>
-                    <div class="card-image flex justify-center mt-8">
-                        <!-- <img src="/api/placeholder/120/120" alt="Wallet" class="w-30 h-30"> -->
+                    <div>
+                        <p>Charging port</p>
+                        <p>Type-C</p>
+                    </div>
+                    <div>
+                        <p>Compatible</p>
+                        <p>Android</p>
+                    </div>
+                    <div>
+                        <p>Bluetooth</p>
+                        <p>5.3</p>
+                    </div>
+                    <div>
+                        <p>Controlled</p>
+                        <p>Touch</p>
                     </div>
                 </div>
-
-                <!-- megha Card -->
-                <div class="finance-card megha-card p-8 flex flex-col justify-between min-h-[400px]">
-                    <div>
-                        <h3 class="text-xl font-medium mb-2">Megha</h3>
-                        <div class="card-title">
-                            <h2 class="text-3xl font-bold mb-2" style="color: black;">The simplicity of megha.</h2>
-                            <h2 class="text-3xl font-bold mb-4">On a flyover.</h2>
-                        </div>
-                        <a href="#" class="learn-more inline-block mt-2">Learn more</a>
-                    </div>
-                    <div class="card-image flex justify-center mt-8">
-                        <!-- <img src="/api/placeholder/240/150" alt="megha Card" class="w-60"> -->
-                    </div>
-                </div>
-
-                <!-- megha Cash Card -->
-                <div class="finance-card cash-card p-8 flex flex-col justify-between min-h-[400px]">
-                    <div>
-                        <h3 class="text-xl font-medium mb-2">Megha</h3>
-                        <div class="card-title">
-                            <h2 class="text-3xl font-bold mb-2">Construct</h2>
-                            <h2 class="text-3xl font-bold mb-4">Plan & Collaborate.</h2>
-                        </div>
-                        <a href="#" class="learn-more inline-block mt-2">Learn more</a>
-                    </div>
-                    <div class="card-image flex justify-center mt-8">
-                        <!-- <img src="/api/placeholder/240/150" alt="megha Cash" class="w-60"> -->
-                    </div>
+                <div class="checkout">
+                    <button>ADD TO CART</button>
+                    <button>CHECKOUT</button>
                 </div>
             </div>
         </div>
-    </section>
+<!---Starts here -->
+        <div class="item">
+            <img src="/images/image3.JPG" style="box-shadow: 0 0 10px;border-radius: 8px;">
+            <div class="introduce">
+                <br/>
+                
+                <div class="topic">We Lift the section of Flyover with our latest Machines</div>
+                <div class="des">
+                     
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Officia, laborum cumque dignissimos quidem atque et eligendi aperiam voluptates beatae maxime.
+                </div>
+                <button class="seeMore">SEE MORE &#8599</button>
+            </div>
+            <div class="detail">
+                <div class="title">Megha Super Structures</div>
+                <div class="des">
+                     
+                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolor, reiciendis suscipit nobis nulla animi, modi explicabo quod corrupti impedit illo, accusantium in eaque nam quia adipisci aut distinctio porro eligendi. Reprehenderit nostrum consequuntur ea! Accusamus architecto dolores modi ducimus facilis quas voluptatibus! Tempora ratione accusantium magnam nulla tenetur autem beatae.
+                </div>
+                <div class="specifications">
+                    <div>
+                        <p>Used Time</p>
+                        <p>6 hours</p>
+                    </div>
+                    <div>
+                        <p>Charging port</p>
+                        <p>Type-C</p>
+                    </div>
+                    <div>
+                        <p>Compatible</p>
+                        <p>Android</p>
+                    </div>
+                    <div>
+                        <p>Bluetooth</p>
+                        <p>5.3</p>
+                    </div>
+                    <div>
+                        <p>Controlled</p>
+                        <p>Touch</p>
+                    </div>
+                </div>
+                <div class="checkout">
+                    <button>Contact Us</button>
+                    <button>Call US</button>
+                </div>
+            </div>
+        </div>
 
+        <div class="item">
+            <img src="/images/image19.JPG" style="border-radius: 8px;box-shadow: 0 0 10px;">
+            <div class="introduce">
+                <div class="topic">We Lift the section of Flyover with our latest Machines</div>
+                <div class="des">
+                     
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Officia, laborum cumque dignissimos quidem atque et eligendi aperiam voluptates beatae maxime.
+                </div>
+                <button class="seeMore">SEE MORE &#8599</button>
+            </div>
+            <div class="detail">
+                <div class="title">Megha Super Structures</div>
+                <div class="des">
+                     
+                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolor, reiciendis suscipit nobis nulla animi, modi explicabo quod corrupti impedit illo, accusantium in eaque nam quia adipisci aut distinctio porro eligendi. Reprehenderit nostrum consequuntur ea! Accusamus architecto dolores modi ducimus facilis quas voluptatibus! Tempora ratione accusantium magnam nulla tenetur autem beatae.
+                </div>
+                <div class="specifications">
+                    <div>
+                        <p>Used Time</p>
+                        <p>6 hours</p>
+                    </div>
+                    <div>
+                        <p>Charging port</p>
+                        <p>Type-C</p>
+                    </div>
+                    <div>
+                        <p>Compatible</p>
+                        <p>Android</p>
+                    </div>
+                    <div>
+                        <p>Bluetooth</p>
+                        <p>5.3</p>
+                    </div>
+                    <div>
+                        <p>Controlled</p>
+                        <p>Touch</p>
+                    </div>
+                </div>
+                <div class="checkout">
+                    <button>Contact Us</button>
+                    <button>Call US</button>
+                </div>
+            </div>
+        </div>
+
+        <div class="item">
+            <img src="/images/image14.JPG" style="border-radius: 8px;box-shadow: 0 0 10px;">
+            <div class="introduce">
+                <div class="topic">We Lift the section of Flyover with our latest Machines</div>
+                <div class="des">
+                    
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Officia, laborum cumque dignissimos quidem atque et eligendi aperiam voluptates beatae maxime.
+                </div>
+                <button class="seeMore">SEE MORE &#8599</button>
+            </div>
+            <div class="detail">
+                <div class="title">Megha Super Structures</div>
+                <div class="des">
+                    
+                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolor, reiciendis suscipit nobis nulla animi, modi explicabo quod corrupti impedit illo, accusantium in eaque nam quia adipisci aut distinctio porro eligendi. Reprehenderit nostrum consequuntur ea! Accusamus architecto dolores modi ducimus facilis quas voluptatibus! Tempora ratione accusantium magnam nulla tenetur autem beatae.
+                </div>
+                <div class="specifications">
+                    <div>
+                        <p>Used Time</p>
+                        <p>6 hours</p>
+                    </div>
+                    <div>
+                        <p>Charging port</p>
+                        <p>Type-C</p>
+                    </div>
+                    <div>
+                        <p>Compatible</p>
+                        <p>Android</p>
+                    </div>
+                    <div>
+                        <p>Bluetooth</p>
+                        <p>5.3</p>
+                    </div>
+                    <div>
+                        <p>Controlled</p>
+                        <p>Touch</p>
+                    </div>
+                </div>
+                <div class="checkout">
+                    <button>Contact Us</button>
+                    <button>Call US</button>
+                </div>
+            </div>
+        </div>
+
+        <div class="item">
+            <img src="/images/image7.JPG" style="border-radius: 8px;box-shadow: 0 0 10px;">
+            <div class="introduce">
+                <div class="topic">We Lift the section of Flyover with our latest Machines</div>
+                <div class="des">
+                     
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Officia, laborum cumque dignissimos quidem atque et eligendi aperiam voluptates beatae maxime.
+                </div>
+                <button class="seeMore">SEE MORE &#8599</button>
+            </div>
+            <div class="detail">
+                <div class="title">Megha Super Structures</div>
+                <div class="des">
+                    
+                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolor, reiciendis suscipit nobis nulla animi, modi explicabo quod corrupti impedit illo, accusantium in eaque nam quia adipisci aut distinctio porro eligendi. Reprehenderit nostrum consequuntur ea! Accusamus architecto dolores modi ducimus facilis quas voluptatibus! Tempora ratione accusantium magnam nulla tenetur autem beatae.
+                </div>
+                <div class="specifications">
+                    <div>
+                        <p>Used Time</p>
+                        <p>6 hours</p>
+                    </div>
+                    <div>
+                        <p>Charging port</p>
+                        <p>Type-C</p>
+                    </div>
+                    <div>
+                        <p>Compatible</p>
+                        <p>Android</p>
+                    </div>
+                    <div>
+                        <p>Bluetooth</p>
+                        <p>5.3</p>
+                    </div>
+                    <div>
+                        <p>Controlled</p>
+                        <p>Touch</p>
+                    </div>
+                </div>
+                <div class="checkout">
+                    <button>Contact Us</button>
+                    <button>Call US</button>
+                </div>
+            </div>
+        </div>
+
+        <div class="item">
+            <img src="/images/image4.JPG" style="border-radius: 8px;box-shadow: 0 0 10px;">
+            <div class="introduce">
+                <div class="topic">We Lift the section of Flyover with our latest Machines</div>
+                <div class="des">
+                     
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Officia, laborum cumque dignissimos quidem atque et eligendi aperiam voluptates beatae maxime.
+                </div>
+                <button class="seeMore">SEE MORE &#8599</button>
+            </div>
+            <div class="detail">
+                 <div class="title">Megha Super Structures</div>
+                <div class="des">
+                     
+                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolor, reiciendis suscipit nobis nulla animi, modi explicabo quod corrupti impedit illo, accusantium in eaque nam quia adipisci aut distinctio porro eligendi. Reprehenderit nostrum consequuntur ea! Accusamus architecto dolores modi ducimus facilis quas voluptatibus! Tempora ratione accusantium magnam nulla tenetur autem beatae.
+                </div>
+                <div class="specifications">
+                    <div>
+                        <p>Used Time</p>
+                        <p>6 hours</p>
+                    </div>
+                    <div>
+                        <p>Charging port</p>
+                        <p>Type-C</p>
+                    </div>
+                    <div>
+                        <p>Compatible</p>
+                        <p>Android</p>
+                    </div>
+                    <div>
+                        <p>Bluetooth</p>
+                        <p>5.3</p>
+                    </div>
+                    <div>
+                        <p>Controlled</p>
+                        <p>Touch</p>
+                    </div>
+                </div>
+                <div class="checkout">
+                    <button>Contact Us</button>
+                    <button>Call US</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="arrows">
+        <button id="prev" style="background-color: #001A3B;color: whitesmoke;"><</button>
+        <button id="next" style="background-color: #001A3B;color: whitesmoke;">></button>
+        <button id="back">See All  &#8599</button>
+    </div>
+</div>
+</section>
+<!--contact section-->
+<div class="contact-container">
+    <div class="left-section">
+        <h1>Contact our sales team</h1>
+        <p class="subtitle">Let's explore how Notion can work for you.</p>
+        
+        <div class="features">
+            <div class="feature-item">
+                <span class="checkmark">✓</span>
+                <p>Megha Super Structures equips every project with state-of-the-art vehicle support, ensuring efficient transport and installation of massive infrastructure components with precision.</p>
+            </div>
+            <div class="feature-item">
+                <span class="checkmark">✓</span>
+                <p>With our fleet of advanced vehicles, Megha Super Structures guarantees that every flyover and bridge section is lifted, moved, and placed seamlessly for maximum durability and safety.</p>
+            </div>
+            <div class="feature-item">
+                <span class="checkmark">✓</span>
+                <p>From cranes to transport vehicles, Megha Super Structures’ fleet is the backbone of each project, ensuring precision and safety as we lift and move massive sections of our constructions..</p>
+            </div>
+        </div>
+
+        <p class="help-text">
+            Looking for support? <a href="#">Visit help & Contact Us</a>
+        </p>
+    </div>
+
+    <div class="right-section">
+        <form>
+            <div class="form-group">
+                <label>First name *</label>
+                <input type="text" placeholder="Megha">
+            </div>
+
+            <div class="form-group">
+                <label>Last name *</label>
+                <input type="text" placeholder="Super Structures">
+            </div>
+
+            <div class="form-group">
+                <label>Work email *</label>
+                <input type="email" placeholder="meghasuperstructure@yahoo.com">
+            </div>
+
+            <div class="form-group">
+                <label>Company name *</label>
+                <input type="text" placeholder="Megha Super Structures.">
+            </div>
+
+            
+
+            <div class="form-group">
+                <label>Machinary vehicle type *</label>
+                <select>
+                    <option value="">Please select...</option>
+                    <option>kkk</option>
+                    <option>sss</option>
+                    <option>ggg</option>
+                    <option>RRR</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label>Anything else?</label>
+                <textarea placeholder="How are you looking to use?"></textarea>
+            </div>
+
+            <p class="required">Fields marked with an asterisk (*) are required.</p>
+
+            <button type="submit" class="submit-btn">Submit</button>
+        </form>
+    </div>
+</div>
     <!----------------------------------Footer----------------------------------->
     <footer class="py-16 px-6 bg-white">
         <div class="max-w-7xl mx-auto">
@@ -1688,7 +1945,7 @@ h1 {
                 <!-- Resources Column -->
                 <div class="md:col-span-1">
                     <h3 class="footer-heading">Resources</h3>
-                    <a href="Indexxxx.html" class="footer-link">Plans</a>
+                    <a href="#" class="footer-link">Plans</a>
                     <a href="#" class="footer-link">For Foundation</a>
                     <a href="#" class="footer-link">Licensing</a>
                     <a href="#" class="footer-link">Help</a>
@@ -1726,8 +1983,8 @@ h1 {
         </div>
     </footer>
     <script>
-        //navbar
-        document.addEventListener("DOMContentLoaded", () => {
+         //navbar
+         document.addEventListener("DOMContentLoaded", () => {
             const menuToggle = document.getElementById('menu-toggle');
             const sidebar = document.getElementById('sidebar');
             const sidebarOverlay = document.getElementById('sidebar-overlay');
@@ -1749,136 +2006,26 @@ h1 {
             });
         });
 
-
-        /*carousel section here js*/
-        const slides = document.querySelectorAll('.carousel-slide');
-        const overlay = document.querySelector('.transition-overlay');
-        let currentSlide = 0;
-
-        function triggerTransition() {
-            overlay.classList.add('transition-active');
-            setTimeout(() => {
-                overlay.classList.remove('transition-active');
-            }, 1500);
+        /*image carousel section */
+        function rotateImages() {
+            document.querySelectorAll('.gallery-section').forEach(section => {
+                const images = section.querySelectorAll('.image-wrapper');
+                const activeImage = section.querySelector('.image-wrapper.active');
+                const nextImage = activeImage.nextElementSibling && 
+                                activeImage.nextElementSibling.classList.contains('image-wrapper') ? 
+                                activeImage.nextElementSibling : 
+                                images[0];
+                
+                activeImage.classList.remove('active');
+                nextImage.classList.add('active');
+            });
         }
 
-        function showSlide(index) {
-            slides.forEach(slide => {
-                slide.classList.remove('active', 'exit');
-            });
-            
-            slides[currentSlide].classList.add('exit');
-            slides[index].classList.add('active');
-            triggerTransition();
-        }
+        // Change images every 3 seconds
+        setInterval(rotateImages, 3000);
 
-        function nextSlide() {
-            currentSlide = (currentSlide + 1) % slides.length;
-            showSlide(currentSlide);
-        }
-
-        // Start with first slide
-        slides[0].classList.add('active');
-
-        // Change slides every 3 seconds
-        setInterval(nextSlide, 3000);
-
-/*about section js here/**************************** */
- //about
- document.querySelectorAll('.find-out-more').forEach(link => {
-            link.addEventListener('click', (e) => {
-                e.preventDefault();
-                alert('You clicked: ' + e.target.closest('.service-content').querySelector('h2').textContent);
-            });
-        });
-
-        /*services section here js ********************************/
-        // Scroll animation
-        const sections = document.querySelector('.expertise-section');
-        const observerrr = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('visible');
-                }
-            });
-        }, {
-            threshold: 0.2
-        });
-
-        observerrr.observe(sections);
-        /*why choose us megha section js ************************/
-        const observerk = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('visible');
-                    
-                    // If it's the main section, animate all boxes
-                    if (entry.target.classList.contains('why-choose-section')) {
-                        const boxes = entry.target.querySelectorAll('.box');
-                        boxes.forEach((box, index) => {
-                            setTimeout(() => {
-                                box.classList.add('visible');
-                            }, index * 200); // Stagger the animations
-                        });
-                    }
-                }
-            });
-        }, {
-            threshold: 0.1
-        });
-
-        // Observe the section
-        observerk.observe(document.querySelector('.why-choose-section'));
-
-/*projects section here projects projecst projects projects */ 
-// Automatic slider
-        const track = document.querySelector('.slider-track');
-        const cards = document.querySelectorAll('.product-card');
-        let currentIndex = 0;
-
-        // Clone cards for infinite scroll
-        cards.forEach(card => {
-            const clone = card.cloneNode(true);
-            track.appendChild(clone);
-        });
-
-        function moveSlider() {
-            currentIndex++;
-            const offset = currentIndex * (320 + 20); // card width + gap
-            track.style.transform = `translateX(-${offset}px)`;
-
-            if (currentIndex >= cards.length) {
-                setTimeout(() => {
-                    track.style.transition = 'none';
-                    currentIndex = 0;
-                    track.style.transform = 'translateX(0)';
-                    setTimeout(() => {
-                        track.style.transition = 'transform 0.5s ease';
-                    }, 50);
-                }, 500);
-            }
-        }
-
-        // Scroll animation
-        const section = document.querySelector('.slider-section');
-        const observerr = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('visible');
-                }
-            });
-        }, {
-            threshold: 0.2
-        });
-
-        observerr.observe(section);
-
-        // Start automatic sliding
-        setInterval(moveSlider, 3000);
-
-        /*3rd one section js here ****************/
-         // Intersection Observer for scroll animation
-         const observer = new IntersectionObserver((entries) => {
+        /*js for partners section here*/
+        const observer = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
                 if (entry.isIntersecting) {
                     entry.target.classList.add('visible');
@@ -1888,14 +2035,76 @@ h1 {
             threshold: 0.1
         });
 
-        // Observe the finance section
-        observer.observe(document.querySelector('.finance-section'));
+        observer.observe(document.querySelector('.partners-section'));
 
-        // Add visible class on page load after a small delay
-        window.addEventListener('load', () => {
-            setTimeout(() => {
-                document.querySelector('.finance-section').classList.add('visible');
-            }, 300);
+        /*projecst sectio  js here */
+         /*projects section js*/
+         document.querySelectorAll('.filter-btn').forEach(button => {
+            button.addEventListener('click', () => {
+                // Remove active class from all buttons
+                document.querySelectorAll('.filter-btn').forEach(btn => 
+                    btn.classList.remove('active'));
+                
+                // Add active class to clicked button
+                button.classList.add('active');
+                
+                // Show/hide appropriate project grid
+                const filterType = button.getAttribute('data-filter');
+                document.getElementById('completedProjects').style.display = 
+                    filterType === 'completed' ? 'grid' : 'none';
+                document.getElementById('ongoingProjects').style.display = 
+                    filterType === 'ongoing' ? 'grid' : 'none';
+            });
+        });
+
+        /*megha machinary section js here*/
+        let nextButton = document.getElementById('next');
+let prevButton = document.getElementById('prev');
+let carousel = document.querySelector('.carousel');
+let listHTML = document.querySelector('.carousel .list');
+let seeMoreButtons = document.querySelectorAll('.seeMore');
+let backButton = document.getElementById('back');
+
+nextButton.onclick = function(){
+    showSlider('next');
+}
+prevButton.onclick = function(){
+    showSlider('prev');
+}
+let unAcceppClick;
+const showSlider = (type) => {
+    nextButton.style.pointerEvents = 'none';
+    prevButton.style.pointerEvents = 'none';
+
+    carousel.classList.remove('next', 'prev');
+    let items = document.querySelectorAll('.carousel .list .item');
+    if(type === 'next'){
+        listHTML.appendChild(items[0]);
+        carousel.classList.add('next');
+    }else{
+        listHTML.prepend(items[items.length - 1]);
+        carousel.classList.add('prev');
+    }
+    clearTimeout(unAcceppClick);
+    unAcceppClick = setTimeout(()=>{
+        nextButton.style.pointerEvents = 'auto';
+        prevButton.style.pointerEvents = 'auto';
+    }, 2000)
+}
+seeMoreButtons.forEach((button) => {
+    button.onclick = function(){
+        carousel.classList.remove('next', 'prev');
+        carousel.classList.add('showDetail');
+    }
+});
+backButton.onclick = function(){
+    carousel.classList.remove('showDetail');
+}
+
+/*contact section here*/
+AOS.init({
+            duration: 1000,
+            once: true
         });
     </script>
 </body>
