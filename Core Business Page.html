@@ -1,0 +1,512 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Core Business - Megha Super Structures</title>
+    <link href="https://unpkg.com/tailwindcss@2.0.2/dist/tailwind.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.2.19/tailwind.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Inter', sans-serif;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            background: #f8f9fa;
+            overflow-x: hidden;
+        }
+
+        .section {
+            padding: 100px 0;
+            opacity: 0;
+            transform: translateY(50px);
+            transition: all 0.8s ease;
+        }
+
+        .section.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Hero Section */
+        .hero {
+            height: 100vh;
+            background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)),
+                        url('/api/placeholder/1920/1080');
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: white;
+        }
+
+        .hero h1 {
+            font-size: 4rem;
+            font-weight: 700;
+            margin-bottom: 20px;
+        }
+
+        .hero p {
+            font-size: 1.5rem;
+            max-width: 800px;
+            margin: 0 auto 30px;
+        }
+
+        /* Equipment Section */
+        .equipment-grid {
+             
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-top: 50px;
+        }
+
+        .equipment-card {
+            background: white;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease;
+        }
+
+        .equipment-card:hover {
+            transform: translateY(-10px);
+        }
+
+        .equipment-image {
+            height: 700px;
+            background: #eee;
+            overflow: hidden;
+        }
+
+        .equipment-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.3s ease;
+        }
+
+        .equipment-card:hover .equipment-image img {
+            transform: scale(1.1);
+        }
+
+        .equipment-content {
+            padding: 25px;
+        }
+
+        .equipment-content h3 {
+            font-size: 1.5rem;
+            margin-bottom: 15px;
+            color: #333;
+        }
+
+        .equipment-content p {
+            color: #666;
+            line-height: 1.6;
+            margin-bottom: 20px;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 12px 30px;
+            background: #2563eb;
+            color: white;
+            text-decoration: none;
+            border-radius: 50px;
+            transition: all 0.3s ease;
+        }
+
+        .btn:hover {
+            background: #1d4ed8;
+            transform: translateY(-2px);
+        }
+
+        /* Expertise Section */
+        .expertise {
+            background: #1e293b;
+            color: white;
+        }
+
+        .expertise-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+            margin-top: 50px;
+        }
+
+        .expertise-item {
+            text-align: center;
+            padding: 30px;
+        }
+
+        .expertise-icon {
+            width: 80px;
+            height: 80px;
+            margin: 0 auto 20px;
+            background: #2563eb;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .expertise-icon svg {
+            width: 40px;
+            height: 40px;
+            stroke: white;
+        }
+
+        /* Stats Section */
+        .stats {
+            background: #f1f5f9;
+            text-align: center;
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 30px;
+            margin-top: 50px;
+        }
+
+        .stat-item {
+            padding: 30px;
+        }
+
+        .stat-number {
+            font-size: 3rem;
+            font-weight: 700;
+            color: #2563eb;
+            margin-bottom: 10px;
+        }
+
+        .stat-label {
+            color: #666;
+            font-size: 1.1rem;
+        }
+
+        /* Media Queries */
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+
+            .hero p {
+                font-size: 1.1rem;
+            }
+
+            .section {
+                padding: 60px 0;
+            }
+
+            .equipment-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .expertise-content {
+                grid-template-columns: 1fr;
+            }
+
+            .stats-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+         /*footer**************************************/
+         .footer-link {
+            color: #6B7280;
+            transition: color 0.2s ease;
+            display: block;
+            padding: 4px 0;
+            text-decoration: none;
+        }
+
+        .footer-link:hover {
+            color: #111827;
+        }
+
+        .social-icon {
+            color: #4B5563;
+            transition: all 0.2s ease;
+            margin-right: 1rem;
+        }
+
+        .social-icon:hover {
+            color: #111827;
+            transform: translateY(-2px);
+        }
+
+        .footer-heading {
+            color: #111827;
+            font-weight: 600;
+            margin-bottom: 1rem;
+        }
+
+        .logo {
+            font-family: 'Playfair Display', serif;
+            font-weight: bold;
+            font-style: italic;
+        }
+
+        @media (max-width: 768px) {
+            .footer-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            
+            .footer-logo-section {
+                grid-column: span 2;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .footer-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .footer-logo-section {
+                grid-column: span 1;
+            }
+        }
+    </style>
+</head>
+<body>
+    <section class="hero">
+        <div class="container">
+            <h1>Building Tomorrow's Infrastructure</h1>
+            <p>Specialized in heavy-duty crane supply and flyover construction solutions</p>
+            <a href="#equipment" class="btn">Explore Our Equipment</a>
+        </div>
+    </section>
+
+    <section id="equipment" class="section">
+        <div class="container">
+            <h2 style="font-size: 3rem;">Our Core Equipment</h2>
+            <div class="equipment-grid">
+                <div class="equipment-card">
+                    <div class="equipment-image">
+                        <img src="/images/carouselimage1.JPG" alt="Heavy-Duty Crane">
+                    </div>
+                    <div class="equipment-content">
+                        <h3>Heavy-Duty Cranes</h3>
+                        <p>State-of-the-art cranes capable of lifting up to 500 tonnes for major infrastructure projects.</p>
+                        <a href="#" class="btn">Learn More</a>
+                    </div>
+                </div>
+                <!-- More equipment cards... -->
+                 <br>
+                 <br>
+                <div class="equipment-card">
+                    <div class="equipment-image">
+                        <img src="/api/placeholder/600/400" alt="Heavy-Duty Crane">
+                    </div>
+                    <div class="equipment-content">
+                        <h3>Heavy-Duty Cranes</h3>
+                        <p>State-of-the-art cranes capable of lifting up to 500 tonnes for major infrastructure projects.</p>
+                        <a href="#" class="btn">Learn More</a>
+                    </div>
+                </div>
+                 <!--anotehr equipement-->
+                 <br>
+                 <br>
+                 <div class="equipment-card">
+                    <div class="equipment-image">
+                        <img src="/api/placeholder/600/400" alt="Heavy-Duty Crane">
+                    </div>
+                    <div class="equipment-content">
+                        <h3>Heavy-Duty Cranes</h3>
+                        <p>State-of-the-art cranes capable of lifting up to 500 tonnes for major infrastructure projects.</p>
+                        <a href="#" class="btn">Learn More</a>
+                    </div>
+                </div>
+                <!--new equipment-->
+                <br>
+                <br>
+                <div class="equipment-card">
+                    <div class="equipment-image">
+                        <img src="/api/placeholder/600/400" alt="Heavy-Duty Crane">
+                    </div>
+                    <div class="equipment-content">
+                        <h3>Heavy-Duty Cranes</h3>
+                        <p>State-of-the-art cranes capable of lifting up to 500 tonnes for major infrastructure projects.</p>
+                        <a href="#" class="btn">Learn More</a>
+                    </div>
+                </div>
+                <!--complete equipment-->
+            </div>
+        </div>
+    </section>
+
+    <section class="section expertise">
+        <div class="container">
+            <h2>Our Expertise</h2>
+            <div class="expertise-content">
+                <div class="expertise-item">
+                    <div class="expertise-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                            <path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"></path>
+                        </svg>
+                    </div>
+                    <h3>Infrastructure Development</h3>
+                    <p>Specialized in flyover and bridge construction</p>
+                </div>
+                <!-- More expertise items... -->
+                 
+            </div>
+        </div>
+    </section>
+
+    <section class="section stats">
+        <div class="container">
+            <h2>Our Impact</h2>
+            <div class="stats-grid">
+                <div class="stat-item">
+                    <div class="stat-number">500+</div>
+                    <div class="stat-label">Projects Completed</div>
+                </div>
+                <!-- More stat items... -->
+            </div>
+        </div>
+    </section>
+  <!----------------------------------Footer----------------------------------->
+  <footer class="py-16 px-6 bg-white">
+    <div class="max-w-7xl mx-auto">
+        <div class="footer-grid grid grid-cols-1 md:grid-cols-6 gap-8">
+            <!-- Logo Section -->
+            <div class="footer-logo-section md:col-span-1">
+                <img src="/images/logoo megha.jpg" alt="kekaaa" style="width: 40px;height: 40px;"/>
+                <h1 class="logo text-3xl mb-4">Megha Super Structures</h1>
+                <p class="text-gray-600 mb-6">We build and create top-notch Flyovers wiht our world-class Engineers.</p>
+                <div class="flex mb-6">
+                    <a href="#" class="social-icon"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#" class="social-icon"><i class="fab fa-youtube"></i></a>
+                    <a href="#" class="social-icon"><i class="fab fa-instagram"></i></a>
+                    <a href="#" class="social-icon"><i class="fab fa-twitter"></i></a>
+                    <a href="#" class="social-icon"><i class="fab fa-pinterest-p"></i></a>
+                </div>
+            </div>
+
+            <!-- Features Column -->
+            <div class="md:col-span-1">
+                <h3 class="footer-heading">Core Business</h3>
+                <a href="#" class="footer-link">Home</a>
+                <a href="#" class="footer-link">About Us</a>
+                <a href="#" class="footer-link">Core Business</a>
+                <a href="#" class="footer-link">Projects</a>
+                <a href="#" class="footer-link">Strengths</a>
+                <a href="#" class="footer-link">Careers</a>
+                <a href="#" class="footer-link">Contact Us</a>
+                <a href="#" class="footer-link">Get in Touch</a>
+                 
+            </div>
+
+            <!-- Solutions Column -->
+            <div class="md:col-span-1">
+                <h3 class="footer-heading">Solutions</h3>
+                <a href="#" class="footer-link">Fantastic Engineers</a>
+                <a href="#" class="footer-link">Quality Work and cement</a>
+                <a href="#" class="footer-link">Quality Workers</a>
+                <a href="#" class="footer-link">Building Flyovers</a>
+            </div>
+
+            <!-- Community Column -->
+            <div class="md:col-span-1">
+                <h3 class="footer-heading">Company</h3>
+                <a href="#" class="footer-link">About us</a>
+                <a href="#" class="footer-link">Careers</a>
+                <a href="#" class="footer-link">Contact</a>
+                <a href="#" class="footer-link">Legal Details</a>
+                <a href="#" class="footer-link">Terms of Use</a>
+                <a href="#" class="footer-link">Privacy Policy</a>
+                <a href="#" class="footer-link">Cookie Policy</a>
+            </div>
+
+            <!-- Resources Column -->
+            <div class="md:col-span-1">
+                <h3 class="footer-heading">Resources</h3>
+                <a href="#" class="footer-link">Plans</a>
+                <a href="#" class="footer-link">For Foundation</a>
+                <a href="#" class="footer-link">Licensing</a>
+                <a href="#" class="footer-link">Help</a>
+                <a href="#" class="footer-link">Engineers</a>
+                <a href="#" class="footer-link">Workers</a>
+                <a href="#" class="footer-link">Authentic Desing for Flyover</a>
+                <a href="#" class="footer-link">Get in Touch</a>
+            </div>
+
+            <!-- Company Column -->
+            <div class="md:col-span-1">
+                <h3 class="footer-heading">Reach Us</h3>
+                <a href="#" class="footer-link"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-envelope-check-fill" viewBox="0 0 16 16">
+                    <path d="M.05 3.555A2 2 0 0 1 2 2h12a2 2 0 0 1 1.95 1.555L8 8.414zM0 4.697v7.104l5.803-3.558zM6.761 8.83l-6.57 4.026A2 2 0 0 0 2 14h6.256A4.5 4.5 0 0 1 8 12.5a4.49 4.49 0 0 1 1.606-3.446l-.367-.225L8 9.586zM16 4.697v4.974A4.5 4.5 0 0 0 12.5 8a4.5 4.5 0 0 0-1.965.45l-.338-.207z"/>
+                    <path d="M16 12.5a3.5 3.5 0 1 1-7 0 3.5 3.5 0 0 1 7 0m-1.993-1.679a.5.5 0 0 0-.686.172l-1.17 1.95-.547-.547a.5.5 0 0 0-.708.708l.774.773a.75.75 0 0 0 1.174-.144l1.335-2.226a.5.5 0 0 0-.172-.686"/>
+                  </svg>meghasuperstructure@yahoo.com</a>
+                <a href="#" class="footer-link"> <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-telephone-inbound-fill" viewBox="0 0 16 16">
+                    <path fill-rule="evenodd" d="M1.885.511a1.745 1.745 0 0 1 2.61.163L6.29 2.98c.329.423.445.974.315 1.494l-.547 2.19a.68.68 0 0 0 .178.643l2.457 2.457a.68.68 0 0 0 .644.178l2.189-.547a1.75 1.75 0 0 1 1.494.315l2.306 1.794c.829.645.905 1.87.163 2.611l-1.034 1.034c-.74.74-1.846 1.065-2.877.702a18.6 18.6 0 0 1-7.01-4.42 18.6 18.6 0 0 1-4.42-7.009c-.362-1.03-.037-2.137.703-2.877zM15.854.146a.5.5 0 0 1 0 .708L11.707 5H14.5a.5.5 0 0 1 0 1h-4a.5.5 0 0 1-.5-.5v-4a.5.5 0 0 1 1 0v2.793L15.146.146a.5.5 0 0 1 .708 0"/>
+                  </svg>+91 9449419000</a>
+                <a href="#" class="footer-link"> <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-telephone-inbound-fill" viewBox="0 0 16 16">
+                    <path fill-rule="evenodd" d="M1.885.511a1.745 1.745 0 0 1 2.61.163L6.29 2.98c.329.423.445.974.315 1.494l-.547 2.19a.68.68 0 0 0 .178.643l2.457 2.457a.68.68 0 0 0 .644.178l2.189-.547a1.75 1.75 0 0 1 1.494.315l2.306 1.794c.829.645.905 1.87.163 2.611l-1.034 1.034c-.74.74-1.846 1.065-2.877.702a18.6 18.6 0 0 1-7.01-4.42 18.6 18.6 0 0 1-4.42-7.009c-.362-1.03-.037-2.137.703-2.877zM15.854.146a.5.5 0 0 1 0 .708L11.707 5H14.5a.5.5 0 0 1 0 1h-4a.5.5 0 0 1-.5-.5v-4a.5.5 0 0 1 1 0v2.793L15.146.146a.5.5 0 0 1 .708 0"/>
+                  </svg>+91 9902398269</a>
+                <a href="#" class="footer-link"> <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-substack" viewBox="0 0 16 16">
+                    <path d="M15 3.604H1v1.891h14v-1.89ZM1 7.208V16l7-3.926L15 16V7.208zM15 0H1v1.89h14z"/>
+                  </svg>Reg Office : Megha Estates</a>
+                <a href="#" class="footer-link">Siruguppa Road , Vakkareni Camp  ,  </a>
+                <a href="#" class="footer-link">Near Brilliant School</a>
+                <a href="#" class="footer-link">Bellari - 583 103 Karnataka</a>
+            </div>
+        </div>
+
+        <div class="mt-12 pt-8 border-t border-gray-200">
+            <p class="text-gray-600 text-sm">© meghasuperstructures 2025</p>
+        </div>
+    </div>
+</footer>
+    <script>
+        // Intersection Observer for section animations
+        const sections = document.querySelectorAll('.section');
+        
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, {
+            threshold: 0.1
+        });
+
+        sections.forEach(section => {
+            observer.observe(section);
+        });
+
+        // Equipment card hover effect
+        const cards = document.querySelectorAll('.equipment-card');
+        
+        cards.forEach(card => {
+            card.addEventListener('mouseenter', () => {
+                card.querySelector('img').style.transform = 'scale(1.1)';
+            });
+            
+            card.addEventListener('mouseleave', () => {
+                card.querySelector('img').style.transform = 'scale(1)';
+            });
+        });
+    </script>
+</body>
+</html>
