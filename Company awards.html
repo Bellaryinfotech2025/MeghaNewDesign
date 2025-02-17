@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Awards & Honours Timeline</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+        }
+
+        .awards-section-body {
+            background-color: #fff;
+            padding: 20px;
+        }
+
+        .awards-section {
+            max-width: 1200px;
+            margin: 40px auto;
+            padding: 20px;
+        }
+
+        .title {
+            text-align: center;
+            font-size: 42px;
+            margin-bottom: 60px;
+            font-weight: bold;
+        }
+
+        .timeline {
+            position: relative;
+            padding: 20px 0;
+            margin-bottom: 50px;
+        }
+
+        .timeline-line {
+            position: absolute;
+            top: 50%;
+            left: 0;
+            width: 100%;
+            height: 2px;
+            background: #e0e0e0;
+            transform: translateY(-50%);
+        }
+
+        .timeline-points {
+            position: relative;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .year-point {
+            position: relative;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .point-dot {
+            width: 20px;
+            height: 20px;
+            background: #3498db;
+            border-radius: 50%;
+            margin-bottom: 10px;
+            transition: all 0.3s ease;
+        }
+
+        .year-text {
+            color: #3498db;
+            font-size: 16px;
+            transition: all 0.3s ease;
+        }
+
+        .year-point:hover .point-dot,
+        .year-point.active .point-dot {
+            background: #2980b9;
+            transform: scale(1.2);
+        }
+
+        .year-point:hover .year-text,
+        .year-point.active .year-text {
+            color: #2980b9;
+            font-weight: bold;
+        }
+
+        .content-container {
+            margin-top: 50px;
+            padding: 20px;
+            opacity: 0;
+            transform: translateY(20px);
+            transition: all 0.5s ease;
+        }
+
+        .content-container.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .award-content {
+            display: none;
+            opacity: 0;
+            transform: translateY(20px);
+            transition: all 0.5s ease;
+        }
+
+        .award-content.active {
+            display: flex;
+            opacity: 1;
+            transform: translateY(0);
+            gap: 30px;
+            align-items: center;
+        }
+
+        .award-text {
+            flex: 1;
+            font-size: 18px;
+            line-height: 1.6;
+            color: #333;
+        }
+
+        .award-image {
+            flex: 1;
+            max-width: 500px;
+            border-radius: 8px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+        }
+
+        @media (max-width: 768px) {
+            .award-content.active {
+                flex-direction: column;
+            }
+
+            .award-image {
+                width: 100%;
+                margin-top: 20px;
+            }
+
+            .title {
+                font-size: 32px;
+            }
+
+            .year-text {
+                font-size: 14px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="awards-section-body">
+    <section class="awards-section">
+        <h1 class="title">Awards & Honours</h1>
+        
+        <div class="timeline">
+            <div class="timeline-line"></div>
+            <div class="timeline-points">
+                <div class="year-point" data-year="2023">
+                    <div class="point-dot"></div>
+                    <div class="year-text">2023</div>
+                </div>
+                <div class="year-point" data-year="2022">
+                    <div class="point-dot"></div>
+                    <div class="year-text">2022</div>
+                </div>
+                <div class="year-point" data-year="2021">
+                    <div class="point-dot"></div>
+                    <div class="year-text">2021</div>
+                </div>
+                <div class="year-point" data-year="2020">
+                    <div class="point-dot"></div>
+                    <div class="year-text">2020</div>
+                </div>
+                <div class="year-point" data-year="2019">
+                    <div class="point-dot"></div>
+                    <div class="year-text">2019</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="content-container">
+            <div class="award-content" data-year="2023">
+                <div class="award-text">
+                    We are thrilled to announce that Conneqt has been honored with the prestigious 14th CII National HR Excellence Award for Significant Achievement for the year 2023-24.
+                </div>
+                <img src="/api/placeholder/600/400" alt="2023 Award" class="award-image">
+            </div>
+            <div class="award-content" data-year="2022">
+                <div class="award-text">
+                    In 2022, Conneqt achieved recognition for outstanding performance in digital transformation and customer experience innovation.
+                </div>
+                <img src="/api/placeholder/600/400" alt="2022 Award" class="award-image">
+            </div>
+            <div class="award-content" data-year="2021">
+                <div class="award-text">
+                    2021 marked a significant year as we received multiple accolades for our technological advancement and employee engagement initiatives.
+                </div>
+                <img src="/api/placeholder/600/400" alt="2021 Award" class="award-image">
+            </div>
+            <div class="award-content" data-year="2020">
+                <div class="award-text">
+                    During the challenging year of 2020, we were recognized for our resilience and innovative solutions in business continuity.
+                </div>
+                <img src="/api/placeholder/600/400" alt="2020 Award" class="award-image">
+            </div>
+            <div class="award-content" data-year="2019">
+                <div class="award-text">
+                    2019 was a milestone year with recognition in multiple categories including BI & Analytics, Digital CX, and HR Excellence.
+                </div>
+                <img src="/api/placeholder/600/400" alt="2019 Award" class="award-image">
+            </div>
+        </div>
+    </section>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const yearPoints = document.querySelectorAll('.year-point');
+            const contentContainer = document.querySelector('.content-container');
+            const awardContents = document.querySelectorAll('.award-content');
+
+            // Show 2023 content by default
+            setTimeout(() => {
+                contentContainer.classList.add('visible');
+                document.querySelector('[data-year="2023"]').classList.add('active');
+                document.querySelector('.award-content[data-year="2023"]').classList.add('active');
+            }, 500);
+
+            yearPoints.forEach(point => {
+                point.addEventListener('click', function() {
+                    const year = this.getAttribute('data-year');
+                    
+                    // Remove active class from all points and contents
+                    yearPoints.forEach(p => p.classList.remove('active'));
+                    awardContents.forEach(content => content.classList.remove('active'));
+                    
+                    // Add active class to clicked point and corresponding content
+                    this.classList.add('active');
+                    document.querySelector(`.award-content[data-year="${year}"]`).classList.add('active');
+                    
+                    // Ensure container is visible
+                    contentContainer.classList.add('visible');
+                });
+            });
+        });
+    </script>
+</body>
+</html>
