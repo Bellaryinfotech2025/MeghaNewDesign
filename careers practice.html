@@ -3,214 +3,223 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Careers - Meghass Flyover</title>
+    <title>Life at Sobha</title>
     <style>
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            font-family: 'Segoe UI', system-ui, sans-serif;
+            font-family: 'Playfair Display', serif;
         }
 
-        .hero {
-            height: 100vh;
+        .slider-container {
             width: 100%;
-            background: linear-gradient(135deg, #1a365d, #2563eb);
+            height: 100vh;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .slider {
+            display: flex;
+            width: 500%; /* 100% * 5 images */
+            height: 100%;
+            transition: transform 0.5s ease-in-out;
+        }
+
+        .slide {
+            width: 20%; /* 100% / 5 images */
+            height: 100%;
             position: relative;
             overflow: hidden;
         }
 
-        .hero::before {
-            content: '';
+        .slide img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .slide-content {
+            position: absolute;
+            bottom: 50px;
+            left: 50px;
+            color: white;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+            z-index: 2;
+        }
+
+        .slide-content h2 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            font-weight: 300;
+        }
+
+        .slide-content p {
+            font-size: 1.2rem;
+            max-width: 600px;
+        }
+
+        .overlay {
             position: absolute;
             top: 0;
             left: 0;
             width: 100%;
             height: 100%;
-            background: rgba(0, 0, 0, 0.3);
+            background: linear-gradient(to top, rgba(0,0,0,0.5) 0%, transparent 100%);
         }
 
-        .hero-content {
-            position: relative;
-            z-index: 1;
-            height: 100%;
+        .navigation {
+            position: absolute;
+            bottom: 20px;
+            left: 50%;
+            transform: translateX(-50%);
             display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            text-align: center;
-            color: white;
-            padding: 0 20px;
+            gap: 10px;
+            z-index: 3;
         }
 
-        .hero h1 {
-            font-size: 3.5rem;
-            margin-bottom: 1.5rem;
-            max-width: 800px;
-        }
-
-        .hero p {
-            font-size: 1.25rem;
-            margin-bottom: 2rem;
-            max-width: 600px;
-            line-height: 1.6;
-        }
-
-        .btn {
-            padding: 1rem 2rem;
-            border-radius: 50px;
-            border: none;
-            font-size: 1.1rem;
-            font-weight: 600;
-            cursor: pointer;
-            transition: all 0.3s ease;
-        }
-
-        .btn-primary {
-            background: white;
-            color: #2563eb;
-        }
-
-        .btn-primary:hover {
-            background: #f8fafc;
-            transform: translateY(-2px);
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-        }
-
-        .features {
-            padding: 5rem 2rem;
-            background: white;
-        }
-
-        .features-grid {
-            max-width: 1200px;
-            margin: 0 auto;
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 2rem;
-            padding: 2rem 0;
-        }
-
-        .feature-card {
-            background: #f8fafc;
-            padding: 2rem;
-            border-radius: 12px;
-            text-align: center;
-            transition: transform 0.3s ease;
-        }
-
-        .feature-card:hover {
-            transform: translateY(-5px);
-        }
-
-        .feature-icon {
-            width: 64px;
-            height: 64px;
-            margin: 0 auto 1rem;
-            background: #2563eb;
+        .nav-btn {
+            width: 12px;
+            height: 12px;
             border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
+            background: rgba(255, 255, 255, 0.5);
+            cursor: pointer;
+            transition: background 0.3s ease;
         }
 
-        .feature-icon img {
-            width: 32px;
-            height: 32px;
-            filter: invert(1);
-        }
-
-        .feature-card h3 {
-            color: #1a365d;
-            margin-bottom: 1rem;
-        }
-
-        .feature-card p {
-            color: #64748b;
-            line-height: 1.6;
-        }
-
-        .cta-section {
-            background: #1a365d;
-            color: white;
-            padding: 4rem 2rem;
-            text-align: center;
-        }
-
-        .cta-content {
-            max-width: 600px;
-            margin: 0 auto;
-        }
-
-        .cta-section h2 {
-            font-size: 2.5rem;
-            margin-bottom: 1.5rem;
-        }
-
-        .cta-section .btn {
-            margin-top: 2rem;
+        .nav-btn.active {
+            background: white;
         }
 
         @media (max-width: 768px) {
-            .hero h1 {
-                font-size: 2.5rem;
+            .slide-content {
+                left: 20px;
+                bottom: 30px;
             }
 
-            .hero p {
-                font-size: 1.1rem;
+            .slide-content h2 {
+                font-size: 1.8rem;
             }
 
-            .features-grid {
-                grid-template-columns: 1fr;
-            }
-
-            .cta-section h2 {
-                font-size: 2rem;
+            .slide-content p {
+                font-size: 1rem;
             }
         }
     </style>
 </head>
 <body>
-    <section class="hero">
-        <div class="hero-content">
-            <h1>Join Our Team at Meghass Flyover</h1>
-            <p>Shape the future of machine supply with innovation and excellence</p>
-            <button class="btn btn-primary">Join Our Team</button>
+    <div class="slider-container">
+        <div class="slider">
+            <div class="slide">
+                <img src="/images/default imag e.png" alt="International Women's Day">
+                <div class="overlay"></div>
+                <div class="slide-content">
+                    <h2>International Women's Day</h2>
+                    <p>Celebrating diversity and inclusion at Sobha</p>
+                </div>
+            </div>
+            <div class="slide">
+                <img src="/images/image fo carousel 4.avif" alt="Smart Idol">
+                <div class="overlay"></div>
+                <div class="slide-content">
+                    <h2>Smart Idol 2024</h2>
+                    <p>Showcasing talent of our technicians</p>
+                </div>
+            </div>
+            <div class="slide">
+                <img src="/images/image8.JPG" alt="Team Building">
+                <div class="overlay"></div>
+                <div class="slide-content">
+                    <h2>Team Building</h2>
+                    <p>Growing stronger together</p>
+                </div>
+            </div>
+            <div class="slide">
+                <img src="/images/image3.JPG" alt="Innovation Hub">
+                <div class="overlay"></div>
+                <div class="slide-content">
+                    <h2>Innovation Hub</h2>
+                    <p>Where ideas come to life</p>
+                </div>
+            </div>
+            <div class="slide">
+                <img src="/images/image1.JPG" alt="Community Events">
+                <div class="overlay"></div>
+                <div class="slide-content">
+                    <h2>Community Events</h2>
+                    <p>Building lasting connections</p>
+                </div>
+            </div>
         </div>
-    </section>
+        <div class="navigation"></div>
+    </div>
 
-    <section class="features">
-        <div class="features-grid">
-            <div class="feature-card">
-                <div class="feature-icon">
-                    <img src="/api/placeholder/32/32" alt="Innovation icon">
-                </div>
-                <h3>Innovation First</h3>
-                <p>Be part of a team that's pushing the boundaries of machine supply technology</p>
-            </div>
-            <div class="feature-card">
-                <div class="feature-icon">
-                    <img src="/api/placeholder/32/32" alt="Growth icon">
-                </div>
-                <h3>Growth Opportunities</h3>
-                <p>Accelerate your career with continuous learning and development programs</p>
-            </div>
-            <div class="feature-card">
-                <div class="feature-icon">
-                    <img src="/api/placeholder/32/32" alt="Culture icon">
-                </div>
-                <h3>Great Culture</h3>
-                <p>Join a diverse and inclusive workplace where every voice matters</p>
-            </div>
-        </div>
-    </section>
+    <script>
+        const slider = document.querySelector('.slider');
+        const slides = document.querySelectorAll('.slide');
+        const navigation = document.querySelector('.navigation');
+        let currentSlide = 0;
+        const slideCount = slides.length;
 
-    <section class="cta-section">
-        <div class="cta-content">
-            <h2>Ready to Make an Impact?</h2>
-            <p>Explore our open positions and join a team that's revolutionizing the industry</p>
-            <button class="btn btn-primary">View Open Positions</button>
-        </div>
-    </section>
+        // Create navigation dots
+        slides.forEach((_, index) => {
+            const dot = document.createElement('div');
+            dot.classList.add('nav-btn');
+            if (index === 0) dot.classList.add('active');
+            dot.addEventListener('click', () => goToSlide(index));
+            navigation.appendChild(dot);
+        });
+
+        const navBtns = document.querySelectorAll('.nav-btn');
+
+        function updateNavigation() {
+            navBtns.forEach((btn, index) => {
+                btn.classList.toggle('active', index === currentSlide);
+            });
+        }
+
+        function goToSlide(index) {
+            currentSlide = index;
+            slider.style.transform = `translateX(-${currentSlide * 20}%)`;
+            updateNavigation();
+        }
+
+        function nextSlide() {
+            currentSlide = (currentSlide + 1) % slideCount;
+            goToSlide(currentSlide);
+        }
+
+        // Auto-advance slides every 5 seconds
+        setInterval(nextSlide, 5000);
+
+        // Touch support for mobile devices
+        let touchStartX = 0;
+        let touchEndX = 0;
+
+        slider.addEventListener('touchstart', e => {
+            touchStartX = e.changedTouches[0].screenX;
+        });
+
+        slider.addEventListener('touchend', e => {
+            touchEndX = e.changedTouches[0].screenX;
+            handleSwipe();
+        });
+
+        function handleSwipe() {
+            const swipeThreshold = 50;
+            const diff = touchStartX - touchEndX;
+
+            if (Math.abs(diff) > swipeThreshold) {
+                if (diff > 0) {
+                    // Swipe left
+                    currentSlide = (currentSlide + 1) % slideCount;
+                } else {
+                    // Swipe right
+                    currentSlide = (currentSlide - 1 + slideCount) % slideCount;
+                }
+                goToSlide(currentSlide);
+            }
+        }
+    </script>
 </body>
 </html>
